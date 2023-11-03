@@ -1,9 +1,10 @@
 const Product = require("../models/productModel");
+require("dotenv").config();
 
 const getAllProducts = async (req, res) => {
   try {
-    let product = await Product.find();
-    res.status(200).send(product);
+    let products = await Product.find();
+    res.status(200).send(products);
   } catch (error) {
     console.log(error);
     res

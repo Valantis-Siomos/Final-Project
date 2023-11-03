@@ -3,12 +3,13 @@ const app = express();
 const port = 8000;
 const cors = require("cors");
 const connections =require("./connections")
+const router = require("./Routers/productRouters")
 
 app.use(express.json());
 app.use(cors());
 
 
-
+app.use("/",router);
 
 
 app.listen(port, () => {

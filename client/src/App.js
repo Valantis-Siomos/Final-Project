@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useCallback, useEffect, useState } from "react";
+import axios from "axios";
+
+
 
 function App() {
+  const [product, setProduct] = useState([]);
+
+  const getAllProducts = useCallback(async () => {
+    try {
+      const responce = await axios.get("http://localhost:8000");
+      setProduct(responce.data);
+    } catch (error) {
+      console.log(error)
+    }
+  },[]);
+
+  useEffect(() => {
+    getAllProducts();
+  }, [getAllProducts]);
+  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>hello</h1>
     </div>
   );
 }
