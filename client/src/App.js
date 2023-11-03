@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 
+import AddProduct from "./components/adminProduct";
+
 
 
 function App() {
@@ -22,7 +24,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1>hello</h1>
+      <h1>La Casa</h1>
+      <AddProduct getAllProducts={getAllProducts} />
+
     </div>
   );
 }
