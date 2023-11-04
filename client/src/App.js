@@ -1,31 +1,31 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import AddProduct from "./components/adminProduct";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/navBar";
 import Login from "./components/login";
 import Register from "./components/register";
 import Home from "./components/home";
-
+import ProductList from "./components/productList";
 
 
 
 
 function App() {
-  const [products, setProduct] = useState([]);
+  const [products, setProducts] = useState([]);
 
-  const getAllProducts = useCallback(async () => {
+  async function getAllProducts() {
     try {
-      const responce = await axios.get("http://localhost:8000");
-      setProduct(responce.data);
+      await axios.get("http://localhost:8000")
+      .then((res) => setProducts(res.data));
+      // console.log(products);
     } catch (error) {
       console.log(error)
     }
-  },[]);
+  };
 
   useEffect(() => {
     getAllProducts();
-  }, [getAllProducts]);
+  }, []);
   
 
   return (
@@ -36,7 +36,8 @@ function App() {
       <Route path="/" element = {<Home /> }/>
       <Route path="/login" element={<Login login={Login}/>} />
       <Route path="/register" element={<Register register={Register} />}/>
-      <Route path="/home" element={<Home home={Home}/>}/>
+      <Route path="/form" element={<Home getAllProducts={getAllProducts} />}/>
+      {/* <Route path="/home" element={<Home home={Home}/>}/> */}
       </Routes>
 
       </BrowserRouter>
