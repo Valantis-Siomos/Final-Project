@@ -27,7 +27,7 @@ function Login() {
       }
     } catch (err) {
       console.log(err);
-      alert("Error with the login");
+      alert("Error with the login" +err.message);
     }
   }
   return (

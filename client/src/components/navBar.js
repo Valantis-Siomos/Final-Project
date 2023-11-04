@@ -1,22 +1,23 @@
 
 import { useNavigate, Link } from "react-router-dom";
-import "./navBar.css";
+import "../components/navBar.css";
 
 
 
 function NavBar() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
 
-    navigate("/login")
+    // navigate("/login")
 
 
 
 
     return (
         <>
-        <nav>
-            <div className="navbar">
+        <nav className="navBar">
+            <div>
+                <Link to="/">Home</Link>
                 <Link to="/login">login</Link>
                 <Link to="/register">Register</Link>
             </div>

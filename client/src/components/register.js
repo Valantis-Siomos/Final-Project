@@ -1,11 +1,11 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   async function handleRegister(e) {
     e.preventDefault();
@@ -14,7 +14,7 @@ function Register() {
       password,
     });
     alert(res.data.msg);
-    // navigate("/login")
+    navigate("/login")
   }
 
   return (

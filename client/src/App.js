@@ -33,7 +33,7 @@ function App() {
       <BrowserRouter>
       <NavBar/>
       <Routes>
-      {/* <Route path="/" element = {<Home /> }/> */}
+      <Route path="/" element = {<Home /> }/>
       <Route path="/login" element={<Login login={Login}/>} />
       <Route path="/register" element={<Register register={Register} />}/>
       <Route path="/home" element={<Home home={Home}/>}/>
