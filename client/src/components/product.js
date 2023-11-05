@@ -1,123 +1,99 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
 
 
-function Product({ getAllProducts, products }) {
-  const [creatorIds, setCreatorIds] = useState([]);
-  const token = localStorage.getItem("token");
-  const decoded = token ? jwt_decode(token) : null;
+function AddProduct({ getAllProducts}) {
+    let token = localStorage.getItem("token");
+    const navigate = useNavigate();
+    const [product, setProduct] = useState({
+      title: "",
+      price: "",
+      description: ""
+    });
 
-  useEffect(() => {
-    if (decoded) {
-      function filterProductsByOwner() {
-        const updateCreatorIds = products
-          .filter((p) => p.owner._id === decoded.id)
-          .map((p) => p._id);
-        setCreatorIds(updateCreatorIds);
-      }
-      filterProductsByOwner();
-    }
-  }, [products]);
-
-  const [editProduct, setEditProduct] = useState({
-    id: null,
-    title: "",
-    price: "",
-    discription: "",
-  });
-
-  async function deleteProduct(id) {
-    const alertDeleteProduct = window.confirm("Are you sure?");
-    if (alertDeleteProduct) {
-      try {
-        await axios.delete(`http://localhost:8000/products/${id}`);
-        getAllProducts();
-      } catch (error) {
-        console.log("Error deleting product:", error);
-      }
-    }
-  }
-
-  async function updateProduct() {
-    try {
-      await axios.put(`http://localhost:8000/products/${editProduct.id}`, {
-        name: editProduct.name,
-        expirationDate: editProduct.expirationDate,
-        category: editProduct.category,
+    const handleInputChange = (e) => {
+      const value = e.target.value;
+      setProduct({
+        ...product,
+        [e.target.name]: value,
       });
-      setEditProduct({
-        id: null,
-        name: "",
-        expirationDate: "",
-        category: "",
-      });
-      getAllProducts();
-    } catch (error) {
-      console.error("Error updating product:", error);
+    };
+    
+
+    
+    const validForm = () => {
+      return (
+        product.title.trim() !== "" &&
+        product.price.trim() !== "" &&
+        product.description.trim() !== ""
+      );
+    };
+  
+    function addNewProduct(e) {
+      e.preventDefault();
+      if (!validForm()) {
+        alert("Please fill in all fields.");
+        return;
+      }
+  
+      axios
+        .post("http://localhost:8000/create", product, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((res) => {
+          console.log(res.data);
+          getAllProducts();
+          navigate("/");
+        })
+  
+        .catch((err) => {
+          console.log(err);
+        });
     }
-  }
 
-  return (
-    <div>
-    {decoded ? (
+
+    return (
       <div>
-        <h2>Products</h2>
-        <ul>
-          {products.map((product) => (
-            <li key={product._id}>
-              <strong>Title:</strong> {product.title} <br />
-              <strong>Price:</strong> ${product.price} <br />
-              <strong>Description:</strong> {product.description} <br />
-              <button
-                onClick={() => setEditProduct({ id: product._id, title: product.title, price: product.price, description: product.description })}
-              >
-                Edit
-              </button>
-              <button onClick={() => deleteProduct(product._id)}>Delete</button>
-            </li>
-          ))}
-        </ul>
+      <div className="inputDiv">
+        <form className="form1" onSubmit={addNewProduct}>
+          <label>Title:</label>
+          <input
+            type="text"
+            name="title"
+            placeholder="Title"
+            onChange={handleInputChange}
+            value={product.title}
+          />
+          <label>Price:</label>
+          <input
+            type="text"
+            name="Price"
+            placeholder="Price"
+            onChange={handleInputChange}
+            value={product.price}
+          />
+          <label>description:</label>
+          <input
+            type="text"
+            name="description"
+            placeholder="description"
+            onChange={handleInputChange}
+            value={product.description}
+          />
+          <button type="submit" className="addProductBtn">
+            ADD
+          </button>
+        </form>
       </div>
-    ) : (
-      <p>Please log in to view your products.</p>
-    )}
-
-    {editProduct.id && (
-      <div>
-        <h2>Edit Product</h2>
-        <input
-          type="text"
-          value={editProduct.title}
-          onChange={(e) => setEditProduct({ ...editProduct, title: e.target.value })}
-          placeholder="Title"
-        />
-        <input
-          type="text"
-          value={editProduct.price}
-          onChange={(e) => setEditProduct({ ...editProduct, price: e.target.value })}
-          placeholder="Price"
-        />
-        <input
-          type="text"
-          value={editProduct.description}
-          onChange={(e) => setEditProduct({ ...editProduct, description: e.target.value })}
-          placeholder="Description"
-        />
-        <button onClick={updateProduct}>Save</button>
-        <button onClick={() => setEditProduct({ id: null, title: '', price: '', description: '' })}>Cancel</button>
-      </div>
-    )}
-  </div>
-  )
-
-
-
+    </div>
+);
+      
 
 
 
 
 }
 
-export default Product;
+export default AddProduct;
+

@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -14,31 +15,30 @@ function Register() {
       password,
     });
     alert(res.data.msg);
-    navigate("/login")
+    navigate("/login");
   }
 
   return (
-    <div>
-      <form onSubmit={handleRegister} >
-        <h2>Register</h2>
-        <br />
-        <label>Email</label>
-        <br />
+    <div className="form">
+      <h1>Register</h1>
+      <form className="loginForm" onSubmit={handleRegister}>
+        <label htmlFor="userEmail">Email</label>
         <input
-          type="text"
+          id="userEmail"
+          type="email"
           value={email}
+          placeholder="email"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <br />
-        <label>Password</label>
-        <br />
+        <label htmlFor="password">Password</label>
         <input
+          id="password"
           type="password"
+          placeholder="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <br />
-        <input type="submit" value="Sign Up" />
+        <button type="submit">Sign up</button>
       </form>
     </div>
   );

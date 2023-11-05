@@ -7,7 +7,7 @@ const verifyToken = (req, res, next) => {
     if (!receivedToken) {
       return res.status(403).send({ msg: "Token does not exist." });
     } else {
-      let verifiedToken = jwt.verify(receivedToken, process.env.PRIVATE_KEY);
+      let verifiedToken = jwt.verify(receivedToken, process.env.TOKEN_KEY);
       if (!verifiedToken) {
         return res.status(401).send({ msg: "Not authorized." });
       } else {
@@ -16,11 +16,8 @@ const verifyToken = (req, res, next) => {
       }
     }
   } catch (err) {
-    console.log(err);
     res.status(500).send({ msg: "Internal server error." });
   }
 };
-
-
 
 module.exports = verifyToken;

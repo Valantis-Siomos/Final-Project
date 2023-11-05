@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import axios from "axios";
-import jwt_decode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
+
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -15,38 +15,38 @@ function Login() {
         email,
         password,
       });
-      console.log(res.data);
       if (res.status === 200) {
+        alert(res.data.msg);
         localStorage.setItem("token", res.data.token);
-        navigate("/products");
+        navigate("/");
+        
       }
     } catch (err) {
-      alert("login failed");
+      alert("Log in failed, check your email or password.");
     }
   }
 
   return (
-    <div className="formContainer">
-      <form onSubmit={handleLogin} value="LogInForm" className="form">
-        <h2>Log in</h2>
-        <br />
-        <label>Email</label>
-        <br />
+    <div className="login">
+      <h1>Login</h1>
+      <form className="loginForm" onSubmit={handleLogin}>
+        <label htmlFor="email">Email</label>
         <input
-          type="text"
+          id="email"
+          type="email"
           value={email}
+          placeholder="email"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <br />
-        <label>Password</label>
-        <br />
+        <label htmlFor="pass">Password</label>
         <input
+          id="pass"
           type="password"
+          placeholder="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <br />
-        <input type="submit" value="Log in" />
+        <button type="submit">Sign in</button>
       </form>
     </div>
   );
