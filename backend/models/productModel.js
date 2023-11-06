@@ -1,19 +1,17 @@
 const mongoose = require("mongoose");
-
-
+const cloudinary = require("../cloudinary-config");
 
 const productShema = new mongoose.Schema(
-    {   
-        title: String,
-        price: String,
-        description: String,
-        creator: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    },
-    {
-        timestamps: true,
-    }
+  {
+    title: String,
+    price: String,
+    description: String,
+    imageUrl: String,
+  },
+  {
+    timestamps: true,
+  }
 );
-
 
 const Product = mongoose.model("Product", productShema);
 
