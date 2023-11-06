@@ -23,7 +23,7 @@ const AdminSchema = new mongoose.Schema({
     unique: true,
     default: process.env.ADMIN_EMAIL, // fix email here and also hide the email
   },
-  },
+  
   password: {
     type: String,
     required: true,
