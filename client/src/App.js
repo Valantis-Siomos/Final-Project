@@ -6,6 +6,7 @@ import Login from "./components/login";
 import Navbar from "./components/navBar";
 import List from "./components/list";
 import AddProduct from "./components/product";
+import Footer from "./components/footer";
 
 function App() {
   const [product, setProduct] = useState([]);
@@ -37,6 +38,7 @@ function App() {
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }

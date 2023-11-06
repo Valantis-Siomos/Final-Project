@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const productShema = new mongoose.Schema(
     {   
         title: String,
-        price: Number,
+        price: String,
         description: String,
         creator: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     },

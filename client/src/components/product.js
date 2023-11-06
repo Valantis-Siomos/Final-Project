@@ -68,7 +68,7 @@ function AddProduct({ getAllProducts}) {
           <label>Price:</label>
           <input
             type="text"
-            name="Price"
+            name="price"
             placeholder="Price"
             onChange={handleInputChange}
             value={product.price}

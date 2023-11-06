@@ -18,12 +18,11 @@ const createProduct = async (req, res) => {
   try {
     console.log(req.user)
     let creator = req.user.id;
-    let { title, imgUrl, description, price } = req.body;
+    let { title, description, price } = req.body;
     let newProduct = {
       title,
-      imgUrl,
-      description,
       price,
+      description,
       creator,
     };
     let product = await Product.create(newProduct);
@@ -49,7 +48,7 @@ const deleteProduct = async (req, res) => {
   try {
     await Product.deleteOne({ _id: req.params.id });
     res.status(200).send({ msg: "delete router is work" });
-  } catch {
+  } catch (error) {
     console.log(error);
     res.status(500).send({ msg: "problem from delete router" });
   }

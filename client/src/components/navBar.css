@@ -1,3 +1,8 @@
-.navBar {
-    background-color: rgb(223, 205, 205);
+.NavBar {
+    background-color: rgb(161, 161, 167);
+}
+
+.links {
+   margin-right: 50px;
+  
 }
