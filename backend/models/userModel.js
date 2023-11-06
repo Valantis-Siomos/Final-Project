@@ -21,19 +21,20 @@ const AdminSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    default: "valantis@gmail.com", // fix email here
+    default: process.env.ADMIN_EMAIL, // fix email here and also hide the email
+  },
   },
   password: {
     type: String,
     required: true,
-    default: "111", // fix password here
+    default: process.env.ADMIN_PASSWORD, // fix password here and also hide the pass
   },
 });
 
-const ViewerUser = mongoose.model("ViewerUser", UserSchema);
-const AdminUser = mongoose.model("AdminUser", AdminSchema);
+const User = mongoose.model("ViewerUser", UserSchema);
+const Admin = mongoose.model("AdminUser", AdminSchema);
 
 module.exports = {
-  ViewerUser,
-  AdminUser,
+  User,
+  Admin,
 };
