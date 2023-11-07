@@ -1,10 +1,11 @@
 const Product = require("../models/productModel");
 require("dotenv").config();
 const verifyToken = require("../middleware/authorization");
+const cloudinary = require("../cloudinary");
 
 const getAllProducts = async (req, res) => {
   try {
-    let products = await Product.find().populate("creator", "email");
+    let products = await Product.find();
     res.status(200).send(products);
   } catch (error) {
     console.log(error);
@@ -17,13 +18,13 @@ const getAllProducts = async (req, res) => {
 const createProduct = async (req, res) => {
   try {
     console.log(req.user)
-    let creator = req.user.id;
     let { title, description, price } = req.body;
+    let result = await cloudinary.uploader.upload(req.file.path);
     let newProduct = {
       title,
       price,
       description,
-      creator,
+      imageUrl: result.secure_url,
     };
     let product = await Product.create(newProduct);
     res.send(newProduct);

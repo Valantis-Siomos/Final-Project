@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const cloudinary = require("../cloudinary-config");
+const cloudinary = require("../cloudinary");
 
-const productShema = new mongoose.Schema(
+const productSchema = new mongoose.Schema(
   {
     title: String,
     price: String,
@@ -13,6 +13,6 @@ const productShema = new mongoose.Schema(
   }
 );
 
-const Product = mongoose.model("Product", productShema);
+const Product = mongoose.model("Product", productSchema);
 
 module.exports = Product;
