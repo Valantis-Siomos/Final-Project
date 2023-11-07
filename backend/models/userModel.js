@@ -21,14 +21,15 @@ const AdminSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    default: process.env.ADMIN_EMAIL, // fix email here and also hide the email
+    default: "valantis@gmail.com", // fix email here 
   },
   
   password: {
     type: String,
     required: true,
-    default: process.env.ADMIN_PASSWORD, // fix password here and also hide the pass
+    default: "111", // fix password here 
   },
+
 });
 
 const User = mongoose.model("ViewerUser", UserSchema);
