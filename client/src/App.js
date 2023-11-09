@@ -3,6 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
 import Home from "./home";
 import Register from "./components/register";
+import Login from "./components/login";
+import Navbar from "./components/navBar";
+import Footer from "./components/footer";
 
 
 
@@ -11,10 +14,13 @@ function App() {
     
     <div>
         <BrowserRouter>
+        <Navbar />
         <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/register" element={<Register/>} />
+            <Route path="/login" element={<Login/>} />
         </Routes>
+        <Footer/>
         </BrowserRouter>
       
     </div>
