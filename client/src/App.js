@@ -1,3 +1,29 @@
+
+
+import React from "react";
+import Home from "./home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+function App() {
+  return (
+    
+    <div className="App">
+      <Home />
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+
 // import axios from "axios";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import { useState, useEffect, useCallback } from "react";

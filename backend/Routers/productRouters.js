@@ -10,7 +10,7 @@ const {
 } = require("../controllers/productControllers");
 router.get("/", getAllProducts);
 router.get("/categories", getCategories)
-router.post("/create", verifyToken, createProduct);
+router.post("/create", createProduct);
 router.put("/:id", updateProduct);
 router.delete("/:id", deleteProduct);
 
