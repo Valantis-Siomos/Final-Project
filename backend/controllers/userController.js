@@ -19,8 +19,8 @@ const register = async (req, res) => {
         msg: "This email already exists, login or register with another email.",
       });
     }
-    
-    const realAdmin = email === process.env.REAL_ADMIN;
+
+    const realAdmin = email === process.env.REAL_ADMIN; //magic string
 
     let hashPassword = await bcrypt.hash(password, +process.env.SALT_ROUND);
     if (realAdmin) {
@@ -48,7 +48,7 @@ const login = async (req, res) => {
     let simpleUser = await User.findOne({ email });
 
     if (adminUser || simpleUser) {
-      let user = adminUser || simpleUser; 
+      let user = adminUser || simpleUser;
       let validPassword = await bcrypt.compare(password, user.password);
 
       if (!validPassword) {

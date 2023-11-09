@@ -1,7 +1,19 @@
 const Product = require("../models/productModel");
+// const Category = require("../models/categoriesModel")
 require("dotenv").config();
 const verifyToken = require("../middleware/authorization");
 const cloudinary = require("../cloudinary");
+
+// const getCategories = async(req, res) => {
+//   try {
+//     let categories = await Category.find();
+//     res.status(200).send(categories)
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500)
+//         .send({mesg: "error to retrieve categories"})
+//   }
+// }
 
 const getAllProducts = async (req, res) => {
   try {
@@ -18,16 +30,17 @@ const getAllProducts = async (req, res) => {
 const createProduct = async (req, res) => {
   try {
     console.log(req.user)
-    let { title, description, price } = req.body;
-    let result = await cloudinary.uploader.upload(req.file.path);
+    let { title, description, price, category } = req.body;
+    // let result = await cloudinary.uploader.upload(req.file.path);
     let newProduct = {
       title,
       price,
       description,
-      imageUrl: result.secure_url,
+      // imageUrl: result.secure_url,
+      category,
     };
-    let product = await Product.create(newProduct);
-    res.send(newProduct);
+    let createdProduct = await Product.create(newProduct);
+    res.send(createdProduct);
   } catch (error) {
     console.log(error);
     res.status(500).send({ msg: "server error from create controllers" });
@@ -60,4 +73,5 @@ module.exports = {
   createProduct,
   updateProduct,
   deleteProduct,
+  
 };

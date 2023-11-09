@@ -16,7 +16,8 @@ const verifyToken = (req, res, next) => {
       }
     }
   } catch (err) {
-    res.status(500).send({ msg: "Internal server error." });
+    console.log(err)
+    res.status(500).send({ msg: "Internal server error from ath." });
   }
 };
 
