@@ -1,5 +1,4 @@
 const Product = require("../models/productModel");
-// const Category = require("../models/categoriesModel")
 require("dotenv").config();
 const verifyToken = require("../middleware/authorization");
 const cloudinary = require("../cloudinary");
@@ -27,9 +26,20 @@ const getAllProducts = async (req, res) => {
   }
 };
 
+const getCategories = async (req, res) => {
+  try {
+    
+    const categories = await Product.distinct("category");
+    res.send(categories);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ msg: "Failed to retrieve categories." });
+  }
+};
+
 const createProduct = async (req, res) => {
   try {
-    console.log(req.user)
+    // console.log(req.user)
     let { title, description, price, category } = req.body;
     // let result = await cloudinary.uploader.upload(req.file.path);
     let newProduct = {
@@ -70,8 +80,8 @@ const deleteProduct = async (req, res) => {
 
 module.exports = {
   getAllProducts,
+  getCategories,
   createProduct,
   updateProduct,
   deleteProduct,
-  
 };
