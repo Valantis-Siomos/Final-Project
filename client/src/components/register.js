@@ -15,7 +15,7 @@ function Register() {
       password,
     });
     alert(res.data.msg);
-    navigate("/login");
+    // navigate("/login");
   }
 
   return (
@@ -38,7 +38,7 @@ function Register() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Sign up</button>
+        <button type="submit">Register</button>
       </form>
     </div>
   );
