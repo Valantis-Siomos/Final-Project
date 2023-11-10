@@ -60,7 +60,7 @@ const login = async (req, res) => {
             id: user._id,
           },
           process.env.TOKEN_KEY,
-          { expiresIn: "1h" }
+          { expiresIn: "5h" }
         );
         res.status(200).send({ msg: "Logged in successfully.", token });
       }

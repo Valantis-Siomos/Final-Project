@@ -1,30 +1,32 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
-import Home from "./home";
+import Home from "./components/home";
 import Register from "./components/register";
 import Login from "./components/login";
 import Navbar from "./components/navBar";
 import Footer from "./components/footer";
+import ProductListByCategory from "./components/ProductListByCategory";
+import AddProduct from "./components/product";
 
 
 
 function App() {
   return (
-    
     <div>
-        <BrowserRouter>
-        <Navbar />
-        <Routes>
-            <Route path="/" element={<Home />}/>
-            <Route path="/register" element={<Register/>} />
-            <Route path="/login" element={<Login/>} />
-        </Routes>
-        <Footer/>
-        </BrowserRouter>
-      
-    </div>
-  );
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/create" element={<AddProduct />} />
+        <Route path="/category/:category" element={<ProductListByCategory />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+  </div>
+);
 }
 
 export default App;

@@ -19,9 +19,9 @@ function Register() {
   }
 
   return (
-    <div className="form">
+    <div>
       <h1>Register</h1>
-      <form className="loginForm" onSubmit={handleRegister}>
+      <form className="login" onSubmit={handleRegister}>
         <label htmlFor="userEmail">Email</label>
         <input
           id="userEmail"

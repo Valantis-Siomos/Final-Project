@@ -11,10 +11,7 @@ const productSchema = new mongoose.Schema(
       type: String,
       enum: [ "Living Room", "Bedroom", "Home Office", "Decoration"]
     }
-    // category: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: "Category",
-    // },
+    
   },
   {
     timestamps: true,

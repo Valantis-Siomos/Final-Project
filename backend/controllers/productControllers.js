@@ -3,16 +3,18 @@ require("dotenv").config();
 const verifyToken = require("../middleware/authorization");
 const cloudinary = require("../cloudinary");
 
-// const getCategories = async(req, res) => {
-//   try {
-//     let categories = await Category.find();
-//     res.status(200).send(categories)
-//   } catch (error) {
-//     console.log(error);
-//     res.status(500)
-//         .send({mesg: "error to retrieve categories"})
-//   }
-// }
+const getProductsByCategory = async (req, res) => {
+  try {
+    const { category } = req.params;
+    const products = await Product.find({ category });
+    res.status(200).send(products);
+  } catch (error) {
+    console.log(error);
+    res
+      .status(500)
+      .send({ msg: "Internal server error (getProductsByCategory)" });
+  }
+};
 
 const getAllProducts = async (req, res) => {
   try {
@@ -28,7 +30,6 @@ const getAllProducts = async (req, res) => {
 
 const getCategories = async (req, res) => {
   try {
-    
     const categories = await Product.distinct("category");
     res.send(categories);
   } catch (err) {
@@ -84,4 +85,5 @@ module.exports = {
   createProduct,
   updateProduct,
   deleteProduct,
+  getProductsByCategory,
 };

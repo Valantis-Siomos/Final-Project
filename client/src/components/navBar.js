@@ -46,7 +46,7 @@ function Navbar() {
               Log in
             </Link>
             <Link className="links" to="/">
-              Items
+              Categories
             </Link>
           </div>
         </nav>
@@ -57,14 +57,14 @@ function Navbar() {
           </div>
           <div>
             <Link className="links">{decoded.email}</Link>
-            <Link className="links" to="/form">
+            <Link className="links" to="/create">
               Post Item
             </Link>
             <Link className="links" onClick={handleLogout}>
               Log out
             </Link>
             <Link className="links" to="/">
-              Items
+              Categories
             </Link>
           </div>
         </nav>

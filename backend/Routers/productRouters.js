@@ -7,9 +7,12 @@ const {
   updateProduct,
   deleteProduct,
   getCategories,
+  getProductsByCategory,
 } = require("../controllers/productControllers");
+
 router.get("/", getAllProducts);
-router.get("/categories", getCategories)
+router.get("/categories", getCategories);
+router.get("/category/:category",getProductsByCategory )
 router.post("/create",verifyToken, createProduct);
 router.put("/:id", updateProduct);
 router.delete("/:id", deleteProduct);
