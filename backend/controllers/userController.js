@@ -20,7 +20,7 @@ const register = async (req, res) => {
       });
     }
 
-    const realAdmin = email === process.env.REAL_ADMIN; //magic string
+    const realAdmin = email === process.env.REAL_ADMIN; 
 
     let hashPassword = await bcrypt.hash(password, +process.env.SALT_ROUND);
     if (realAdmin) {

@@ -41,6 +41,9 @@ const getCategories = async (req, res) => {
 const createProduct = async (req, res) => {
   try {
     // console.log(req.user)
+    if (!req.user || !req.user.email || req.user.email !== process.env.REAL_ADMIN) {
+      return res.status(403).send({ msg: "Unauthorized. Only admin can create products." });
+    }
     let { title, description, price, category } = req.body;
     // let result = await cloudinary.uploader.upload(req.file.path);
     let newProduct = {
