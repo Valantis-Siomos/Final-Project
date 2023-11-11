@@ -13,6 +13,7 @@ const UserSchema = new mongoose.Schema({
     //to avoid the empty fields
     required: true,
   },
+ 
 });
 
 //admin users with fixed username and password
@@ -29,6 +30,7 @@ const AdminSchema = new mongoose.Schema({
     required: true,
     default: "111", // fix password here 
   },
+
 
 });
 
