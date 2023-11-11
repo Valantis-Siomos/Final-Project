@@ -41,6 +41,7 @@ const getCategories = async (req, res) => {
 const createProduct = async (req, res) => {
   try {
     // console.log(req.user)
+    //the game start here
     if (!req.user || !req.user.email || req.user.email !== process.env.REAL_ADMIN) {
       return res.status(403).send({ msg: "Unauthorized. Only admin can create products." });
     }

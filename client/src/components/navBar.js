@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import React from "react";
 import { jwtDecode } from "jwt-decode";
-import "./navBar.css"
+import "./navBar.css";
 
 function Navbar() {
+  const ADMIN = process.env.REACT_APP_ADMIN;
   const navigate = useNavigate();
   let token;
   let decoded;
@@ -38,8 +39,7 @@ function Navbar() {
             <h1>Nav Bar</h1>
           </div>
           <div>
-            
-            <Link  className="links" to="register">
+            <Link className="links" to="register">
               Register
             </Link>
             <Link className="links" to="login">
@@ -57,9 +57,11 @@ function Navbar() {
           </div>
           <div>
             <Link className="links">{decoded.email}</Link>
-            <Link className="links" to="/create">
-              Post Item
-            </Link>
+            {token && decoded.email === ADMIN && (
+              <Link className="links" to="/create">
+                Post Item
+              </Link>
+            )}
             <Link className="links" onClick={handleLogout}>
               Log out
             </Link>
