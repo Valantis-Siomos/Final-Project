@@ -1,6 +1,9 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
+
+
+
 const verifyToken = (req, res, next) => {
   try {
     // Check 
@@ -29,6 +32,8 @@ const verifyToken = (req, res, next) => {
     console.log(err);
     res.status(500).send({ msg: "Internal server error from auth." });
   }
+
+  
 };
 
 module.exports = verifyToken;

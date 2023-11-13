@@ -36,7 +36,7 @@ function Navbar() {
       {!token ? (
         <nav className="NavBar">
           <div>
-            <h1>Nav Bar</h1>
+            <h1>La Casa</h1>
           </div>
           <div>
             <Link className="links" to="register">
@@ -59,7 +59,7 @@ function Navbar() {
             <Link className="links">{decoded.email}</Link>
             {token && decoded.email === ADMIN && (
               <Link className="links" to="/create">
-                Post Item
+                manage the items
               </Link>
             )}
             <Link className="links" onClick={handleLogout}>

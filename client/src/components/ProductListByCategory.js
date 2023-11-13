@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import "./ProductListByCategory.css"
+import { jwtDecode } from "jwt-decode";
+
 
 const ProductListByCategory = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [editProduct, setEditProduct] = useState({
     id: null,
     title: "",
@@ -12,6 +14,21 @@ const ProductListByCategory = () => {
     description: "",
   });
   const { category } = useParams();
+  
+  const ADMIN = process.env.REACT_APP_ADMIN;
+  let token;
+  let decoded;
+  try {
+    token = localStorage.getItem("token");
+
+    if (token) {
+      decoded = jwtDecode(token);
+    }
+    // console.log("Token:", token);
+    // console.log("Decoded:", decoded);
+  } catch (error) {
+    console.log("Invalid token", error);
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,8 +39,6 @@ const ProductListByCategory = () => {
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
-      } finally {
-        setLoading(false);
       }
     };
 
@@ -33,6 +48,7 @@ const ProductListByCategory = () => {
   const deleteProduct = async (id) => {
     try {
       await axios.delete(`http://localhost:8000/${id}`);
+      
     } catch (error) {
       console.log("Error deleting product:", error);
     }
@@ -58,124 +74,80 @@ const ProductListByCategory = () => {
   return (
     <div>
       <h1>Products in {category}</h1>
-      {loading ? (
-        <p>Loading...</p>
-      ) : (
-        <ul>
-          {products.map((product) => (
-            <li key={product._id}>
-              <div className="buttonsContainer">
-                <button
-                  onClick={() => deleteProduct(product._id)}
-                  className="deleteButton"
-                >
-                  <i className="material-icons">Delete</i>
-                </button>
-                <button
-                  onClick={() => {
+      
+      <div>
+        {products.map((product) => (
+          <div className="productDiv" key={product._id}>
+            <p>{product.title}</p>
+            <p>{product.description}</p>
+            <p>{product.price}</p>
+            {token && decoded.email === ADMIN && (
+          <div>
+            <div className="buttonsContainer">
+              <button
+                onClick={() => deleteProduct(product._id)}
+                className="deleteButton"
+              >
+                <i className="material-icons">Delete</i>
+              </button>
+              <button
+                onClick={() => {
+                  setEditProduct({
+                    id: product._id,
+                    title: product.title,
+                    description: product.description,
+                    price: product.price,
+                  });
+                }}
+                className="editButton"
+              >
+                <i className="material-icons">Edit</i>
+              </button>
+            </div>
+  
+            {editProduct.id === product._id && (
+              <div className="editForm">
+                <input
+                  type="text"
+                  value={editProduct.title}
+                  onChange={(e) =>
+                    setEditProduct({ ...editProduct, title: e.target.value })
+                  }
+                />
+                <input
+                  type="text"
+                  value={editProduct.price}
+                  onChange={(e) =>
                     setEditProduct({
-                      id: product._id,
-                      title: product.title,
-                      description: product.description,
-                      price: product.price,
-                      
-                    });
-                  }}
-                  className="editButton"
-                >
-                  <i className="material-icons">Edit</i>
-                </button>
+                      ...editProduct,
+                      price: e.target.value,
+                    })
+                  }
+                />
+                <input
+                  type="text"
+                  value={editProduct.description}
+                  onChange={(e) =>
+                    setEditProduct({
+                      ...editProduct,
+                      description: e.target.value,
+                    })
+                  }
+                />
+                <button onClick={updateProduct}>Save</button>
               </div>
-              {editProduct.id === product._id && (
-                <div className="editForm">
-                  <input
-                    type="text"
-                    value={editProduct.title}
-                    onChange={(e) =>
-                      setEditProduct({ ...editProduct, title: e.target.value })
-                    }
-                  />
-                  <input
-                    type="text"
-                    value={editProduct.price}
-                    onChange={(e) =>
-                      setEditProduct({
-                        ...editProduct,
-                        price: e.target.value,
-                      })
-                    }
-                  />
-                  <input
-                    type="text"
-                    value={editProduct.description}
-                    onChange={(e) =>
-                      setEditProduct({
-                        ...editProduct,
-                        description: e.target.value,
-                      })
-                    }
-                  />
-                  <button onClick={updateProduct}>Save</button>
-                </div>
-              )}
-
-              <p>{product.title}</p>
-              <p>{product.description}</p>
-              <p>{product.price}</p>
-            </li>
-          ))}
-        </ul>
-      )}
+            )}
+          </div>
+            
+            )}
+        </div>
+            
+        ))}
+      </div>
+      
     </div>
   );
-};
+                }
 
 export default ProductListByCategory;
 
-
-
-// import React, { useState, useEffect } from 'react';
-// import axios from 'axios';
-// import { useParams } from 'react-router-dom';
-
-// const ProductListByCategory = ({ match }) => {
-//   const [products, setProducts] = useState([]);
-//   const [loading, setLoading] = useState(true);
-//   const { category } = useParams();
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const response = await axios.get(`http://localhost:8000/category/${category}`);
-//         setProducts(response.data);
-//       } catch (error) {
-//         console.error('Error fetching products:', error);
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchData();
-//   }, [category]);
-
-//   return (
-//     <div>
-//       <h1>Products in {category}</h1>
-//       {loading ? (
-//         <p>Loading...</p>
-//       ) : (
-//         <ul>
-//           {products.map(product => (
-//             <li key={product._id}>
-//               <p>{product.title}</p>
-//               <p>{product.description}</p>
-//               <p>{product.price}</p>
-//             </li>
-//           ))}
-//         </ul>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default ProductListByCategory;

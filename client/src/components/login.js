@@ -19,7 +19,8 @@ function Login() {
         alert(res.data.msg);
         localStorage.setItem("token", res.data.token);
         // navigate("/");
-        
+        // const isAdmin = res.data.role === "Admin";
+        // localStorage.setItem("isAdmin", isAdmin);
       }
     } catch (err) {
       alert("Log in failed, check your email or password.");

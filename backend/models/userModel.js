@@ -30,7 +30,7 @@ const AdminSchema = new mongoose.Schema({
     required: true,
     default: "111", // fix password here 
   },
-
+  
 
 });
 
