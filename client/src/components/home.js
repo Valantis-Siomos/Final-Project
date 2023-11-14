@@ -24,7 +24,6 @@ function Home() {
     <div>
       <h1>Categories</h1>
       {categories.map((category) => (
-        // Generate dynamic paths based on category
         <Link
           to={`/category/${encodeURIComponent(category)}`} 
           key={category}

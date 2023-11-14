@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./ProductListByCategory.css";
 import { jwtDecode } from "jwt-decode";
+
 
 const ProductListByCategory = () => {
   const [products, setProducts] = useState([]);
@@ -75,11 +76,12 @@ const ProductListByCategory = () => {
 
       <div>
         {products.map((product) => (
+          <Link to={`/product/${product._id}`} key={product._id}>
           <div className="productDiv" key={product._id}>
             <p>{product.title}</p>
             <p>{product.description}</p>
             <p>{product.price}</p>
-            {token && decoded.email === ADMIN && (
+            {token && decoded.email === ADMIN && (   //only the admin see this
               <div>
                 <div className="buttonsContainer">
                   <button
@@ -139,8 +141,9 @@ const ProductListByCategory = () => {
                   </div>
                 )}
               </div>
-            )}
+            )}  
           </div>
+          </Link>
         ))}
       </div>
     </div>

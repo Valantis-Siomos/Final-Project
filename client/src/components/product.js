@@ -1,61 +1,57 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+function AddProduct({ getAllProducts }) {
+  let token = localStorage.getItem("token");
+  const navigate = useNavigate();
+  const [product, setProduct] = useState({
+    title: "",
+    price: "",
+    description: "",
+    category: "",
+  });
 
-function AddProduct({ getAllProducts}) {
-    let token = localStorage.getItem("token");
-    const navigate = useNavigate();
-    const [product, setProduct] = useState({
-      title: "",
-      price: "",
-      description: "",
-      category: "",
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setProduct({
+      ...product,
+      [e.target.name]: value,
     });
+  };
 
-    const handleInputChange = (e) => {
-      const value = e.target.value;
-      setProduct({
-        ...product,
-        [e.target.name]: value,
-      });
-    };
-    
+  const validForm = () => {
+    return (
+      product.title.trim() !== "" &&
+      product.price.trim() !== "" &&
+      product.description.trim() !== ""
+    );
+  };
 
-    
-    const validForm = () => {
-      return (
-        product.title.trim() !== "" &&
-        product.price.trim() !== "" &&
-        product.description.trim() !== ""
-      );
-    };
-  
-    function addNewProduct(e) {
-      e.preventDefault();
-      if (!validForm()) {
-        alert("Please fill in all fields.");
-        return;
-      }
-  
-      axios
-        .post("http://localhost:8000/create", product, {
-          headers: { Authorization: `Bearer ${token}` },
-        })
-        .then((res) => {
-          console.log(res.data);
-          getAllProducts();
-        //   navigate("/");
-        })
-  
-        .catch((err) => {
-          console.log(err);
-        });
+  function addNewProduct(e) {
+    e.preventDefault();
+    if (!validForm()) {
+      alert("Please fill in all fields.");
+      return;
     }
 
+    axios
+      .post("http://localhost:8000/create", product, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((res) => {
+        console.log(res.data);
+        getAllProducts();
+        //   navigate("/");
+      })
 
-    return (
-      <div>
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  return (
+    <div>
       <div className="inputDiv">
         <form className="form1" onSubmit={addNewProduct}>
           <label>Title:</label>
@@ -83,26 +79,30 @@ function AddProduct({ getAllProducts}) {
             value={product.description}
           />
           <label>Category:</label>
-          <input
-            type="input"
+          <select
+            name="category"
+            onChange={handleInputChange}
+            value={product.category}
+          >
+            <option value="">Select a category</option>
+            <option value="Living Room">Living Room</option>
+            <option value="Bedroom">Bedroom</option>
+            <option value="Home Office">Home Office</option>
+            <option value="Decoration">Decoration</option>
+          </select>
+          {/* <input
             name="category"
             placeholder="category"
             onChange={handleInputChange}
             value={product.category}
-          />
+          /> */}
           <button type="submit" className="addProductBtn">
             ADD
           </button>
         </form>
       </div>
     </div>
-);
-      
-
-
-
-
+  );
 }
 
 export default AddProduct;
-

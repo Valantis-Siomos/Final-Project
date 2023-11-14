@@ -8,7 +8,7 @@ import Navbar from "./components/navBar";
 import Footer from "./components/footer";
 import ProductListByCategory from "./components/ProductListByCategory";
 import AddProduct from "./components/product";
-
+import ProductDetails from "./components/ProductDetails";
 
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/create" element={<AddProduct />} />
         <Route path="/category/:category" element={<ProductListByCategory />} />
+        <Route path="/product/:id" element={< ProductDetails />} />
       </Routes>
       <Footer />
     </BrowserRouter>

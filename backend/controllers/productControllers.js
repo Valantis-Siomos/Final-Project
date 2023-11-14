@@ -16,6 +16,19 @@ const getProductsByCategory = async (req, res) => {
   }
 };
 
+const getProductById = async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+
+    if (!product) {
+      return res.status(404).send({ msg: "Product not found" });
+    }
+    res.status(200).send(product);
+  } catch (err) {
+    res.status(400).send({ msg: err.message });
+  }
+};
+
 const getAllProducts = async (req, res) => {
   try {
     let products = await Product.find();
@@ -42,8 +55,14 @@ const createProduct = async (req, res) => {
   try {
     // console.log(req.user)
     //the game start here
-    if (!req.user || !req.user.email || req.user.email !== process.env.REAL_ADMIN) {
-      return res.status(403).send({ msg: "Unauthorized. Only admin can create products." });
+    if (
+      !req.user ||
+      !req.user.email ||
+      req.user.email !== process.env.REAL_ADMIN
+    ) {
+      return res
+        .status(403)
+        .send({ msg: "Unauthorized. Only admin can create products." });
     }
     let { title, description, price, category } = req.body;
     // let result = await cloudinary.uploader.upload(req.file.path);
@@ -90,4 +109,5 @@ module.exports = {
   updateProduct,
   deleteProduct,
   getProductsByCategory,
+  getProductById,
 };
