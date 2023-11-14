@@ -73,15 +73,17 @@ const ProductListByCategory = () => {
   return (
     <div>
       <h1>Products in {category}</h1>
-
+  
       <div>
         {products.map((product) => (
-          <Link to={`/product/${product._id}`} key={product._id}>
           <div className="productDiv" key={product._id}>
-            <p>{product.title}</p>
-            <p>{product.description}</p>
-            <p>{product.price}</p>
-            {token && decoded.email === ADMIN && (   //only the admin see this
+            <Link to={`/product/${product._id}`}>
+              <p>{product.title}</p>
+              <p>{product.description}</p>
+              <p>{product.price}</p>
+            </Link>
+  
+            {token && decoded.email === ADMIN && (
               <div>
                 <div className="buttonsContainer">
                   <button
@@ -104,7 +106,7 @@ const ProductListByCategory = () => {
                     <i className="material-icons">Edit</i>
                   </button>
                 </div>
-
+  
                 {editProduct.id === product._id && (
                   <div className="editForm">
                     <input
@@ -141,13 +143,11 @@ const ProductListByCategory = () => {
                   </div>
                 )}
               </div>
-            )}  
+            )}
           </div>
-          </Link>
         ))}
       </div>
     </div>
   );
-};
-
+                    }  
 export default ProductListByCategory;
