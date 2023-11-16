@@ -1,7 +1,7 @@
 const Product = require("../models/productModel");
 require("dotenv").config();
 const verifyToken = require("../middleware/authorization");
-const cloudinary = require("../cloudinary");
+// const cloudinary = require("../cloudinary");
 
 const getProductsByCategory = async (req, res) => {
   try {

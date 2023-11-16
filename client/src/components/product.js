@@ -96,6 +96,13 @@ function AddProduct({ getAllProducts }) {
             onChange={handleInputChange}
             value={product.category}
           /> */}
+          {/* <label>Image:</label>
+          <input
+            type="file"
+            name="image"
+            accept="image/*"
+            onChange={handleInputChange}
+          /> */}
           <button type="submit" className="addProductBtn">
             ADD
           </button>
