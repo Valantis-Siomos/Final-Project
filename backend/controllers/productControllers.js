@@ -64,13 +64,13 @@ const createProduct = async (req, res) => {
         .status(403)
         .send({ msg: "Unauthorized. Only admin can create products." });
     }
-    let { title, description, price, category } = req.body;
-    // let result = await cloudinary.uploader.upload(req.file.path);
+    let { title, description, price, imageUrl, category } = req.body;
+    
     let newProduct = {
       title,
       price,
       description,
-      // imageUrl: result.secure_url,
+      imageUrl,
       category,
     };
     let createdProduct = await Product.create(newProduct);

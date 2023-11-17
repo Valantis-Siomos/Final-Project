@@ -16,26 +16,28 @@ const router = express.Router();
 
 
 
-const YOUR_DOMAIN = 'http://localhost:3000';
+// const YOUR_DOMAIN = 'http://localhost:3000';
 
 router.post('/create-checkout-session', async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.create({
       line_items: [
         {
-          // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+          
           price: '{{PRICE_ID}}',
           quantity: 1,
         },
       ],
       mode: 'payment',
-      success_url: `${YOUR_DOMAIN}?success=true`,
-      cancel_url: `${YOUR_DOMAIN}?canceled=true`,
+      success_url: `${process.env.YOUR_DOMAIN}/checkout-success`,
+      cancel_url: `${process.env.YOUR_DOMAIN}/cart`,
     });
 
-    res.redirect(303, session.url);
+    res.send({url: session.url});
   } catch (error) {
     console.error('Error creating checkout session:', error.message);
     res.status(500).send({ msg: 'Internal server error (create-checkout-session)' });
   }
 });
+
+module.exports = router;

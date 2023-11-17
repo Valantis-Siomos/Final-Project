@@ -9,6 +9,7 @@ import Footer from "./components/footer";
 import ProductListByCategory from "./components/ProductListByCategory";
 import AddProduct from "./components/product";
 import ProductDetails from "./components/ProductDetails";
+import ShoppingCart from "./components/cart";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/create" element={<AddProduct />} />
         <Route path="/category/:category" element={<ProductListByCategory />} />
         <Route path="/product/:id" element={< ProductDetails />} />
+        <Route path="/cart" element={<ShoppingCart />} />
       </Routes>
       <Footer />
     </BrowserRouter>
