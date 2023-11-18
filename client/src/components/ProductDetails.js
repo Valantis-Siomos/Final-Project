@@ -53,6 +53,7 @@ const ProductDetails = () => {
       <p>{product.title}</p>
       <p>{product.description}</p>
       <p>{product.price}</p>
+      <img src={product.imageUrl}  />
 
       {decoded ? (
         <>

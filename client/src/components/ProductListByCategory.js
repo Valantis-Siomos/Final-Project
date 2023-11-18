@@ -12,6 +12,7 @@ const ProductListByCategory = () => {
     title: "",
     price: "",
     description: "",
+    imageUrl: "",
   });
   const { category } = useParams();
 
@@ -81,6 +82,8 @@ const ProductListByCategory = () => {
               <p>{product.title}</p>
               <p>{product.description}</p>
               <p>{product.price}</p>
+              
+              
             </Link>
   
             {token && decoded.email === ADMIN && (

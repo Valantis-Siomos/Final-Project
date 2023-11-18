@@ -1,16 +1,44 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { storage } from "./firebase";
+import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import {v4} from 'uuid';
 
 function AddProduct({ getAllProducts }) {
   let token = localStorage.getItem("token");
+  const [imageUpload, setImageUpload] = useState(null);
+  const [imageList, steImageList] = useState([]);
   const navigate = useNavigate();
   const [product, setProduct] = useState({
     title: "",
     price: "",
     description: "",
     category: "",
+    imageUrl: "",
   });
+  
+  const imageListRef = ref(storage, "image/")
+  const uploadImage = () => {
+    if (imageUpload == null) return;
+    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+    uploadBytes(imageRef, imageUpload).then(() => {
+      alert("OK");
+    })
+  };
+
+  useEffect(() => {
+    listAll(imageListRef).then((response) => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          steImageList((prev) => [...prev, url]);
+          
+        })
+      })
+    })
+  }, [])
+
+
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -78,6 +106,22 @@ function AddProduct({ getAllProducts }) {
             onChange={handleInputChange}
             value={product.description}
           />
+          <label>Image:</label>
+          <input
+            type="file"
+            name="imageUrl"
+            placeholder="image"
+            onChange={(event) => {setImageUpload(event.target.files[0]);
+            }}
+            value={product.imageUrl}
+            
+          />
+          <button onClick={uploadImage}>
+            Upload
+          </button>
+          {imageList.map((url) => {
+            return <img src={url} />
+          })}
           <label>Category:</label>
           <select
             name="category"
@@ -90,6 +134,8 @@ function AddProduct({ getAllProducts }) {
             <option value="Home Office">Home Office</option>
             <option value="Decoration">Decoration</option>
           </select>
+          
+          
           {/* <input
             name="category"
             placeholder="category"
@@ -103,6 +149,7 @@ function AddProduct({ getAllProducts }) {
             accept="image/*"
             onChange={handleInputChange}
           /> */}
+          
           <button type="submit" className="addProductBtn">
             ADD
           </button>

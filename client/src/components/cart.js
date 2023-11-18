@@ -26,6 +26,10 @@ const Cart = () => {
     localStorage.removeItem(`cartItems_${decoded?.id}`);
   };
 
+  const calculateTotalPrice = () => {
+    return cartItems.reduce((total, item) => total + item.price, 0);
+  };
+
   return (
     <div>
       <h1>Cart</h1>
@@ -40,6 +44,7 @@ const Cart = () => {
               <p>{item.price}</p>
             </div>
           ))}
+          <p>Total: ${calculateTotalPrice()}</p>
           <GooglePay />
           <button onClick={clearCart}>Clear Cart</button>
           
