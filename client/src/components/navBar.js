@@ -62,6 +62,9 @@ function Navbar() {
                 manage the items
               </Link>
             )}
+            <Link to="/cart">
+        <div>Go to Cart</div>
+      </Link>
             <Link className="links" onClick={handleLogout}>
               Log out
             </Link>
