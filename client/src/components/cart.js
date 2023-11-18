@@ -1,14 +1,28 @@
 import React, { useState } from "react";
+import { jwtDecode } from "jwt-decode";
 
 const Cart = () => {
+  let token;
+  let decoded;
+  try {
+    token = localStorage.getItem("token");
+
+    if (token) {
+      decoded = jwtDecode(token);
+    }
+    // console.log("Token:", token);
+    // console.log("Decoded:", decoded);
+  } catch (error) {
+    console.log("Invalid token", error);
+  }
   const [cartItems, setCartItems] = useState(
-    JSON.parse(localStorage.getItem("cartItems")) || []
+    JSON.parse(localStorage.getItem(`cartItems_${decoded?.id}`)) || []
   );
 
   const clearCart = () => {
     
     setCartItems([]);
-    localStorage.removeItem("cartItems");
+    localStorage.removeItem(`cartItems_${decoded?.id}`);
   };
 
   return (
