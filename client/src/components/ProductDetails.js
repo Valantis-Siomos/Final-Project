@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState({});
@@ -19,15 +20,35 @@ const ProductDetails = () => {
     fetchProduct();
   }, [id]);
 
+  const addToCart = () => {
+    
+    const existingCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    
+    const updatedCartItems = [...existingCartItems, product];
+
+    
+    localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
+
+    alert("Product added to cart!");
+  };
+
+
+
   return (
     <div>
       <p>{product.title}</p>
       <p>{product.description}</p>
       <p>{product.price}</p>
 
-      {/* <button onClick={() => addToCart(product)}>Add to Cart</button> */}
+      <button onClick={addToCart}>Add to Cart</button>
+
+      <Link to="/cart">
+        <button>Go to Cart</button>
+      </Link>
     </div>
   );
 };
+
 
 export default ProductDetails;
