@@ -54,11 +54,16 @@ const ProductDetails = () => {
       <p>{product.description}</p>
       <p>{product.price}</p>
 
-      <button onClick={addToCart}>Add to Cart</button>
-
-      <Link to="/cart">
-        <button>Go to Cart</button>
-      </Link>
+      {decoded ? (
+        <>
+          <button onClick={addToCart}>Add to Cart</button>
+          <Link to="/cart">
+            <button>Go to Cart</button>
+          </Link>
+        </>
+      ) : (
+        <p>Login to see cart options</p>
+      )}
     </div>
   );
 };
