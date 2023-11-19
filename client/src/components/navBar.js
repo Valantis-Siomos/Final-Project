@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import React from "react";
 import { jwtDecode } from "jwt-decode";
 import "./navBar.css";
+import logo from "../assets/logo.jpg"
+
 
 function Navbar() {
   const ADMIN = process.env.REACT_APP_ADMIN;
@@ -35,10 +37,10 @@ function Navbar() {
     <>
       {!token ? (
         <nav className="NavBar">
-          <div>
-            <h1>La Casa</h1>
+          <div className="imgNav">
+          <img src={logo} alt="Logo" />
           </div>
-          <div>
+          <div className="linksHeader">
             <Link className="links" to="register">
               Register
             </Link>
@@ -53,7 +55,7 @@ function Navbar() {
       ) : (
         <nav className="NavBar">
           <div>
-            <h1>La Casa</h1>
+          <img src={logo} alt="Logo" />
           </div>
           <div>
             <Link className="links">{decoded.email}</Link>
@@ -62,15 +64,16 @@ function Navbar() {
                 manage the items
               </Link>
             )}
-            <Link to="/cart">
-        <div>Go to Cart</div>
+            <Link className="links" to="/cart">
+        <div className="links">Go to Cart</div>
       </Link>
+      <Link className="links" to="/">
+              Categories
+            </Link>
             <Link className="links" onClick={handleLogout}>
               Log out
             </Link>
-            <Link className="links" to="/">
-              Categories
-            </Link>
+            
           </div>
         </nav>
       )}

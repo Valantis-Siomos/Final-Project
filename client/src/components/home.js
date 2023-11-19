@@ -6,6 +6,7 @@ import category1 from "../assets/category1.jpeg";
 import category2 from "../assets/category2.jpg";
 import category3 from "../assets/category3.jpg";
 import category4 from "../assets/category4.jpg";
+import "./home.css";
 
 function Home() {
   const [categories, setCategories] = useState([]);
@@ -33,24 +34,26 @@ function Home() {
   };
 
   return (
-    <div>
+    <div className="categoriesContainer">
       <h1>Categories</h1>
-      {categories.map((category) => (
-        <Link
-          to={`/category/${encodeURIComponent(category)}`}
-          key={category}
-          style={{ textDecoration: "none", color: "black" }}
-        >
-          <div className="categoriesDiv">
-            <img
-              src={categoryPhotos[category]} 
-              // alt={`${category} thumbnail`}
-              style={{ width: "100px", height: "100px", objectFit: "cover" }}
-            />
-            {category}
-          </div>
-        </Link>
-      ))}
+      <div className="categoriesGrid">
+        {categories.map((category) => (
+          <Link
+            to={`/category/${encodeURIComponent(category)}`}
+            key={category}
+            style={{ textDecoration: "none", color: "black" }}
+          >
+            <div className="categoriesDiv">
+              <img 
+                src={categoryPhotos[category]} 
+                alt={`${category} thumbnail`}
+                style={{ width: "900px", height: "500px", objectFit: "cover" }}
+              />
+              {category}
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

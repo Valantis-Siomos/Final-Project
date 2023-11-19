@@ -1,0 +1,29 @@
+/* .categoriesDiv  {
+    display: flex;
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    padding: 10px;
+    
+} */
+
+
+.categoriesContainer {
+    text-align: center;
+  }
+  
+  .categoriesGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .categoriesDiv {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .categoriesDiv img {
+    margin-bottom: 8px;
+  }
