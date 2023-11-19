@@ -9,12 +9,12 @@ const productSchema = new mongoose.Schema(
     imageUrl: String,
     category: {
       type: String,
-      enum: [ "Living Room", "Bedroom", "Home Office", "Decoration"]
+      enum: [ "Living", "Bedroom", "Office", "Decoration"]
     }
     
   },
   {
-    timestamps: true,
+    imageUrl: String,
   }
 );
 

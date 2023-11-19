@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 // import react from "react";
 import { Link } from "react-router-dom";
+import category1 from "../assets/category1.jpeg";
+import category2 from "../assets/category2.jpg";
+import category3 from "../assets/category3.jpg";
+import category4 from "../assets/category4.jpg";
 
 function Home() {
   const [categories, setCategories] = useState([]);
@@ -19,17 +23,30 @@ function Home() {
   // const handleCategoryClick = (category) => {
   //   console.log(`Clicked category: ${category}`);
   // };
+  const categoryPhotos = {
+    // Add entries for each category and its corresponding photo URL
+    Bedroom: category1,
+    Decoration: category2,
+    Office: category3,
+    Living: category4,
+    
+  };
 
   return (
     <div>
       <h1>Categories</h1>
       {categories.map((category) => (
         <Link
-          to={`/category/${encodeURIComponent(category)}`} 
+          to={`/category/${encodeURIComponent(category)}`}
           key={category}
           style={{ textDecoration: "none", color: "black" }}
         >
           <div className="categoriesDiv">
+            <img
+              src={categoryPhotos[category]} 
+              // alt={`${category} thumbnail`}
+              style={{ width: "100px", height: "100px", objectFit: "cover" }}
+            />
             {category}
           </div>
         </Link>
@@ -37,6 +54,7 @@ function Home() {
     </div>
   );
 }
+
 
 
 export default Home;

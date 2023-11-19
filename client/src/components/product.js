@@ -138,9 +138,9 @@ function AddProduct({ getAllProducts }) {
             value={product.category}
           >
             <option value="">Select a category</option>
-            <option value="Living Room">Living Room</option>
+            <option value="Living">Living</option>
             <option value="Bedroom">Bedroom</option>
-            <option value="Home Office">Home Office</option>
+            <option value="Office">Office</option>
             <option value="Decoration">Decoration</option>
           </select>
           
