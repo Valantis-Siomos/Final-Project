@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import React from "react";
 import { jwtDecode } from "jwt-decode";
 import "./navBar.css";
-import logo from "../assets/logo.jpg"
+import logo from "../assets/logo.png"
 
 
 function Navbar() {
@@ -54,10 +54,10 @@ function Navbar() {
         </nav>
       ) : (
         <nav className="NavBar">
-          <div>
+          <div className="imgNav">
           <img src={logo} alt="Logo" />
           </div>
-          <div>
+          <div className="linksHeader">
             <Link className="links">{decoded.email}</Link>
             {token && decoded.email === ADMIN && (
               <Link className="links" to="/create">
