@@ -3,6 +3,10 @@ import axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import "./ProductListByCategory.css";
 import { jwtDecode } from "jwt-decode";
+import { storage } from "./firebase";
+import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import {v4} from 'uuid';
+import AddProduct from "./product";
 
 
 const ProductListByCategory = () => {
@@ -66,6 +70,7 @@ const ProductListByCategory = () => {
         title: "",
         price: "",
         description: "",
+        iamageUrl: "",
       });
     } catch (error) {
       console.error("Error updating product:", error);
@@ -76,12 +81,13 @@ const ProductListByCategory = () => {
       <h1>Products in {category}</h1>
   
       <div>
-        {products.map((product) => (
+        {products.map((product, url) => (
           <div className="productDiv" key={product._id}>
             <Link to={`/product/${product._id}`}>
               <p>{product.title}</p>
               <p>{product.description}</p>
               <p>{product.price}</p>
+              <img src={product.imageUrl} alt={product.title} />
               
               
             </Link>

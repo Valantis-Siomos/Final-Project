@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import GooglePay from "./googleButton";
+import "./cart.css";
 
 const Cart = () => {
   let token;
@@ -38,7 +39,7 @@ const Cart = () => {
       ) : (
         <div>
           {cartItems.map((item) => (
-            <div key={item.id}>
+            <div key={item.id} className="item">
               <p>{item.title}</p>
               {/* <p>{item.description}</p> */}
               <p>{item.price}</p>

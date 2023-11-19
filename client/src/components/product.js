@@ -23,15 +23,24 @@ function AddProduct({ getAllProducts }) {
     if (imageUpload == null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
     uploadBytes(imageRef, imageUpload).then(() => {
-      alert("OK");
-    })
+      getDownloadURL(imageRef).then((url) => {
+        setProduct({
+          ...product,
+          imageUrl: url,
+        });
+        alert("Image uploaded successfully");
+      });
+    });
   };
 
   useEffect(() => {
     listAll(imageListRef).then((response) => {
       response.items.forEach((item) => {
-        getDownloadURL(item).then((url) => {
-          steImageList((prev) => [...prev, url]);
+        getDownloadURL(item).then((snaphsot) => {
+          getDownloadURL(snaphsot.ref).then((url) => {
+            steImageList((prev) => [...prev, url]);
+          })
+          
           
         })
       })
@@ -113,11 +122,11 @@ function AddProduct({ getAllProducts }) {
             placeholder="image"
             onChange={(event) => {setImageUpload(event.target.files[0]);
             }}
-            value={product.imageUrl}
+            // value={product.imageUrl}
             
           />
           <button onClick={uploadImage}>
-            Upload
+            Upload image
           </button>
           {imageList.map((url) => {
             return <img src={url} />
