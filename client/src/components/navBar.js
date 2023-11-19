@@ -4,6 +4,9 @@ import React from "react";
 import { jwtDecode } from "jwt-decode";
 import "./navBar.css";
 import logo from "../assets/logo.png"
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import PermIdentityRoundedIcon from '@mui/icons-material/PermIdentityRounded';
+import PostAddRoundedIcon from '@mui/icons-material/PostAddRounded';
 
 
 function Navbar() {
@@ -45,7 +48,7 @@ function Navbar() {
               Register
             </Link>
             <Link className="links" to="login">
-              Log in
+              <PermIdentityRoundedIcon/>
             </Link>
             <Link className="links" to="/">
               Categories
@@ -61,11 +64,11 @@ function Navbar() {
             <Link className="links">{decoded.email}</Link>
             {token && decoded.email === ADMIN && (
               <Link className="links" to="/create">
-                manage the items
+                <PostAddRoundedIcon/>
               </Link>
             )}
             <Link className="links" to="/cart">
-        <div className="links">Go to Cart</div>
+        <div className="links"><AddShoppingCartIcon /></div>
       </Link>
       <Link className="links" to="/">
               Categories
