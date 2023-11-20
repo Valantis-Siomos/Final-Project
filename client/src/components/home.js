@@ -33,9 +33,12 @@ function Home() {
     
   };
 
+
+  
+
   return (
     <div className="categoriesContainer">
-      <h1>Categories</h1>
+      <h1> maybe carousel here... </h1>
       <div className="categoriesGrid">
         {categories.map((category) => (
           <Link

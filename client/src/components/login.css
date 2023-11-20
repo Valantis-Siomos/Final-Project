@@ -1,0 +1,45 @@
+.outerDiv {
+    /* background-image: url("../assets/lr1.jpg"); */
+    background-color: #0620b1;
+    padding: 20px;
+    /* height: 150vh;
+    background-repeat: no-repeat; */
+    /* background-size: cover; */
+}
+  
+  .mainDiv {
+    display: flex;
+    align-items: center;
+    background-color: #f7f8f7d5;
+  }
+  
+  .photoDiv {
+    background-color: rgb(41, 35, 35);
+    width: 500px; 
+    height: 500px; 
+  }
+  
+  .login {
+    margin-left: 1000px; 
+  }
+  
+  
+  .loginForm {
+    /* margin-top: 200px; */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: center;
+    align-content: center;
+    background-color: #373b375b;
+    color: #ffffff;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    height: 350px;
+    width: 490px;
+    flex-wrap: wrap;
+    /* box-shadow: 0 0 15px 3px  #1d1716; */
+  }
+  
+ 
+  

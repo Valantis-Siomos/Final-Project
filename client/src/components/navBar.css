@@ -5,7 +5,7 @@ body {
 .NavBar {
   /* background-color: rgb(161, 161, 167); */
   /* border-bottom: 1px solid black; */
-  box-shadow: 0 4px 8px rgba(134, 134, 134, 0.2);
+  box-shadow: 0 4px 8px rgba(134, 134, 134, 0.3);
   padding: 10px;
   /* or a specific width like width: 1200px; */
   display: flex;

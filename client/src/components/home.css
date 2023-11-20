@@ -7,6 +7,8 @@
     
 } */
 
+
+
 .categoriesContainer {
   text-align: center;
 }
@@ -14,7 +16,7 @@
 .categoriesGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 13px;
 }
 
 .categoriesDiv {
@@ -25,6 +27,7 @@
 
 .categoriesDiv img {
   margin-bottom: 8px;
+  
   
 }
 
@@ -53,6 +56,7 @@
     border-bottom: 2px solid rgb(197, 168, 1);
   }
 }
+
 
 
 
