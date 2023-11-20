@@ -43,13 +43,17 @@ function Home() {
             key={category}
             style={{ textDecoration: "none", color: "black" }}
           >
-            <div className="categoriesDiv">
-              <img 
-                src={categoryPhotos[category]} 
+            <div className="categoriesContainerItem">
+              <img
+                src={categoryPhotos[category]}
                 alt={`${category} thumbnail`}
-                style={{ width: "900px", height: "500px", objectFit: "cover" }}
+                style={{
+                  width: "100%", 
+                  height: "100%", 
+                  objectFit: "cover",
+                }}
               />
-              {category}
+              <p className="categoryText">{category}</p>
             </div>
           </Link>
         ))}
@@ -57,6 +61,7 @@ function Home() {
     </div>
   );
 }
+
 
 
 

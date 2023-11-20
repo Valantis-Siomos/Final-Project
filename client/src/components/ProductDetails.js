@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import "./ProductDetails.css"
 
 const ProductDetails = () => {
   const [product, setProduct] = useState({});
@@ -49,11 +50,11 @@ const ProductDetails = () => {
 
 
   return (
-    <div>
-      <p>{product.title}</p>
-      <p>{product.description}</p>
-      <p>{product.price}</p>
-      <img src={product.imageUrl} alt={product.title} />
+    <div className="prodactDetails">
+      <p className="pDetails">{product.title}</p>
+      <p className="pDetails">{product.description}</p>
+      <p className="pDetails">{product.price}</p>
+      <img className="imgPoductDetails" src={product.imageUrl} alt={product.title} />
 
       {decoded ? (
         <>

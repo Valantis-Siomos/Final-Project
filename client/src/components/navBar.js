@@ -3,11 +3,9 @@ import { useNavigate } from "react-router-dom";
 import React from "react";
 import { jwtDecode } from "jwt-decode";
 import "./navBar.css";
-import logo from "../assets/logo.png"
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import PermIdentityRoundedIcon from '@mui/icons-material/PermIdentityRounded';
-import PostAddRoundedIcon from '@mui/icons-material/PostAddRounded';
-
+import logo from "../assets/logo.png";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import PostAddRoundedIcon from "@mui/icons-material/PostAddRounded";
 
 function Navbar() {
   const ADMIN = process.env.REACT_APP_ADMIN;
@@ -40,16 +38,17 @@ function Navbar() {
     <>
       {!token ? (
         <nav className="NavBar">
-          <div className="imgNav">
-          <img src={logo} alt="Logo" />
+          <div className="imgDiv">
+            <img className="imgNav" src={logo} alt="Logo" />
           </div>
           <div className="linksHeader">
+            <Link className="links" to="login">
+              Login
+            </Link>
             <Link className="links" to="register">
               Register
             </Link>
-            <Link className="links" to="login">
-              <PermIdentityRoundedIcon/>
-            </Link>
+
             <Link className="links" to="/">
               Categories
             </Link>
@@ -57,26 +56,25 @@ function Navbar() {
         </nav>
       ) : (
         <nav className="NavBar">
-          <div className="imgNav">
-          <img src={logo} alt="Logo" />
+          <div className="imgDiv" >
+            <img className="imgNav" src={logo} alt="Logo" />
           </div>
           <div className="linksHeader">
             <Link className="links">{decoded.email}</Link>
             {token && decoded.email === ADMIN && (
               <Link className="links" to="/create">
-                <PostAddRoundedIcon/>
+                <PostAddRoundedIcon />
               </Link>
             )}
             <Link className="links" to="/cart">
-        <div className="links"><AddShoppingCartIcon /></div>
-      </Link>
-      <Link className="links" to="/">
+              <AddShoppingCartIcon style={{ fontWeight: "bold" }} />
+            </Link>
+            <Link className="links" to="/">
               Categories
             </Link>
             <Link className="links" onClick={handleLogout}>
               Log out
             </Link>
-            
           </div>
         </nav>
       )}
