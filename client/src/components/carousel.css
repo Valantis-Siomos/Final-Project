@@ -1,4 +1,7 @@
-
+body {
+  max-width: 100%;
+  overflow-x: hidden; /*ashir help me in this part*/
+}
 
 .carousel-image {
     position: relative;
