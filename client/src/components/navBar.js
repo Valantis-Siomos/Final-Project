@@ -60,7 +60,7 @@ function Navbar() {
             <img className="imgNav" src={logo} alt="Logo" />
           </div>
           <div className="linksHeader">
-            <Link className="links">{decoded.email}</Link>
+            {/* <Link className="links">{decoded.email}</Link> */}
             {token && decoded.email === ADMIN && (
               <Link className="links" to="/create">
                 <PostAddRoundedIcon />

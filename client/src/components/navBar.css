@@ -5,7 +5,7 @@ body {
 .NavBar {
   /* background-color: rgb(161, 161, 167); */
   /* border-bottom: 1px solid black; */
-  box-shadow: 0 4px 8px rgba(134, 134, 134, 0.3);
+  box-shadow: 0 4px 8px rgba(134, 134, 134, 0.8);
   padding: 10px;
   /* or a specific width like width: 1200px; */
   display: flex;
@@ -13,21 +13,21 @@ body {
   /* gap: 10em; */
 }
 .imgDiv {
-    text-align: center;
+    text-align: left;
 }
 
 .imgNav {
   text-align: center;
-  width: 380px;
+  width: 180px;
 }
 
 .linksHeader {
   /* text-align: right; */
-  height: 80px;
+  height: 30px;
   display: flex;
   /* flex-direction: column; */
   justify-content: right;
-  /* margin-top: -50px; */
+  margin-top: -30px;
   gap: 1em;
 }
 

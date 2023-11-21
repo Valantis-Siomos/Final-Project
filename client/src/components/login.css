@@ -28,7 +28,7 @@
   /* display: flex;
     align-items: center; */
   position: absolute;
-  top: 75%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
@@ -73,7 +73,7 @@
 
 .email {
   border: none;
-  border-bottom: 1px solid #000000; /* Add this line to apply the bottom border */
+  border-bottom: 1px solid #000000; 
   padding: 8px;
   margin-bottom: 15px;
   outline: none;
@@ -82,7 +82,7 @@
 
 .password {
   border: none;
-  border-bottom: 1px solid #000000; /* Add this line to apply the bottom border */
+  border-bottom: 1px solid #000000; 
   padding: 8px;
   margin-bottom: 15px;
   outline: none;
