@@ -1,0 +1,144 @@
+.outerDivRegister {
+    /* background-image: url("../assets/lr3.jpg"); */
+  
+    /* background: radial-gradient(
+        ellipse farthest-corner at right bottom,
+        #fedb37 0%,
+        #fdb931 8%,
+        #9f7928 30%,
+        #8a6e2f 40%,
+        transparent 80%
+      ),
+      radial-gradient(
+        ellipse farthest-corner at left top,
+        #ffffff 0%,
+        #ffffac 8%,
+        #d1b464 25%,
+        #5d4a1f 62.5%,
+        #5d4a1f 100%
+      ); */
+    padding: 20px;
+    height: 75vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  
+  .mainDivRegister {
+    /* display: flex;
+      align-items: center; */
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 890px;
+    height: 500px;
+    box-shadow: 0 0 15px 3px #1d1716;
+    border-radius: 12px;
+  }
+  
+  .photoDivRegister {
+    background-image: url("../assets/lr2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 445px;
+    height: 500px;
+    box-shadow: 0 0 15px 3px #1d1716;
+    border-radius: 12px 0px 0px 12px;
+  }
+  
+  .register {
+    margin-left: 1000px;
+  }
+  
+  .registerForm {
+    margin-top: -470px;
+    margin-left: -580px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    justify-content: center;
+    align-content: center;
+    /* background-color: #373b37; */
+    color: #000000;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    height: 350px;
+    width: 490px;
+    flex-wrap: wrap;
+    /* box-shadow: 0 0 15px 3px  #1d1716; */
+    
+  }
+  
+  #userEmail {
+    border: none;
+    border-bottom: 1px solid #000000; /* Add this line to apply the bottom border */
+    padding: 8px;
+    margin-bottom: 15px;
+    outline: none;
+    
+  }
+  
+  .password {
+    border: none;
+    border-bottom: 1px solid #000000; /* Add this line to apply the bottom border */
+    padding: 8px;
+    margin-bottom: 15px;
+    outline: none;
+    
+  }
+  
+  .button {
+    margin-top: 40px;
+      margin-left: 90px;
+      width: 140px;
+      font-size: 17px;
+      background: transparent;
+      border: none;
+      padding: 1em 1.5em;
+      color: #050504;
+      text-transform: uppercase;
+      position: relative;
+      transition: .5s ease;
+    }
+    
+    .button::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background-color: #ffc506;
+      transition: .5s ease;
+    }
+    
+    .button:hover {
+      color: #1e1e2b;
+      transition-delay: .5s;
+      
+    }
+    
+    .button:hover::before {
+      width: 100%;
+    }
+    
+    .button::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 0;
+      width: 100%;
+      background-color: #ffc506;
+      transition: .4s ease;
+      z-index: -1;
+      
+    }
+    
+    .button:hover::after {
+      height: 100%;
+      transition-delay: 0.4s;
+      color: aliceblue;
+    }
