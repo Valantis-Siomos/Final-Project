@@ -12,11 +12,11 @@ const Carousel = (categories) => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 600,
+    speed: 2000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySapeed: 3000,
+    autoplaySapeed: 2000,
   };
 
   
@@ -25,43 +25,47 @@ const Carousel = (categories) => {
     <Slider {...settings}>
       <div className='carousel-image'>
         <img className='imgcar' src={category1} alt="Category 1" style={{
-                  width: "1903px", 
+                  width: "1200px", 
                   height: "630px", 
                   objectFit: "cover",
                 //   marginLeft: "651px",
                   marginTop: "50px",
+                  marginLeft: "351.5px",
                 }} />
-                <p style={{ marginTop: "-100px", color: "black", fontSize: "40px", fontWeight: 'bold' }}>BEDROOM</p>
+                <p style={{ marginTop: "-100px", color: "white", fontSize: "40px", fontWeight: 'bold' }}>BEDROOM</p>
       </div>
       <div className='carousel-image'>
         <img src={category2} alt="Category 2" style={{
-                   width: "1903px",
-                   height: "600px",
+                   width: "1200px",
+                   height: "630px",
                   objectFit: "cover",
                 //   marginLeft: "-10px",
                 marginTop: "50px",
+                marginLeft: "351.5px",
                 }}/>
-                <p style={{ marginTop: "-100px", color: "black", fontSize: "40px", fontWeight: 'bold' }}>DECORATION</p>
+                <p style={{ marginTop: "-100px", color: "white", fontSize: "40px", fontWeight: 'bold' }}>DECORATION</p>
       </div>
       <div className='carousel-image'>
       <img src={category3} alt="Category 3" style={{
-                   width: "1903px",
+                   width: "1200px",
                    height: "600px",
                   objectFit: "cover",
                 //   marginLeft: "-10px",
                 marginTop: "50px",
+                marginLeft: "351.5px",
                 }}/>
-                <p style={{ marginTop: "-100px", color: "black", fontSize: "40px", fontWeight: 'bold' }}>OFFICE</p>
+                <p style={{ marginTop: "-100px", color: "white", fontSize: "40px", fontWeight: 'bold' }}>OFFICE</p>
       </div>
       <div className='carousel-image'>
       <img src={category4} alt="Category 4" style={{
-                   width: "1903px",
+                   width: "1200px",
                    height: "600px",
                   objectFit: "cover",
                 //   marginLeft: "-10px",
                 marginTop: "50px",
+                marginLeft: "351.5px",
                 }}/>
-                <p style={{ marginTop: "-100px", color: "black", fontSize: "40px", fontWeight: 'bold' }}>LIVING</p>
+                <p style={{ marginTop: "-100px", color: "white", fontSize: "40px", fontWeight: 'bold' }}>LIVING</p>
       </div>
     </Slider>
   );

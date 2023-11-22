@@ -15,7 +15,7 @@ function Register() {
       password,
     });
     alert(res.data.msg);
-    // navigate("/login");
+    navigate("/login");
   }
 
   return (

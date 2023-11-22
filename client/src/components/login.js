@@ -18,7 +18,7 @@ function Login() {
       if (res.status === 200) {
         alert(res.data.msg);
         localStorage.setItem("token", res.data.token);
-        // navigate("/");
+        navigate("/");
         // const isAdmin = res.data.role === "Admin";
         // localStorage.setItem("isAdmin", isAdmin);
       }

@@ -53,6 +53,7 @@ const ProductListByCategory = () => {
   const deleteProduct = async (id) => {
     try {
       await axios.delete(`http://localhost:8000/${id}`);
+      window.location.reload();
     } catch (error) {
       console.log("Error deleting product:", error);
     }
@@ -72,22 +73,25 @@ const ProductListByCategory = () => {
         description: "",
         iamageUrl: "",
       });
+      window.location.reload();
     } catch (error) {
       console.error("Error updating product:", error);
     }
   };
   return (
-    <div>
-      <h1>Products in {category}</h1>
-  
+    <div className="mainByCategory">
+      <div className="categoryTitle">
+      <h1>{category}</h1>
+      </div>
       <div className="productsGrid">
         {products.map((product, url) => (
           <div className="productDiv" key={product._id}>
             <Link to={`/product/${product._id}`}>
-              <p>{product.title}</p>
-              <p>{product.description}</p>
-              <p>{product.price}</p>
               <img className="productImage" src={product.imageUrl} alt={product.title} />
+              <p className="productDetailsTitle">{product.title}</p>
+              {/* <p className="productDetailsDiscription">{product.description}</p> */}
+              <p className="productDetailsPrice">{product.price} €</p>
+              
               
               
             </Link>

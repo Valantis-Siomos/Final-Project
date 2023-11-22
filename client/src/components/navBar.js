@@ -27,7 +27,7 @@ function Navbar() {
   function handleLogout() {
     if (token) {
       localStorage.removeItem("token");
-      // navigate("/");
+      navigate("/");
       window.location.reload();
     } else {
       return;
@@ -50,7 +50,7 @@ function Navbar() {
             </Link>
 
             <Link className="links" to="/">
-              Categories
+              Home
             </Link>
           </div>
         </nav>
@@ -70,7 +70,7 @@ function Navbar() {
               <AddShoppingCartIcon style={{ fontWeight: "bold" }} />
             </Link>
             <Link className="links" to="/">
-              Categories
+              Home
             </Link>
             <Link className="links" onClick={handleLogout}>
               Log out

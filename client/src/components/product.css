@@ -1,0 +1,65 @@
+.formAddProduct {
+  margin-top: 100px;
+  margin-bottom: 200px;
+  
+  
+}
+
+.inputDivProduct {
+  max-width: 400px;
+  margin: 0 auto;
+  
+}
+
+.formProduct {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ProductInp {
+  padding: 5px;
+  border: none;
+  border-bottom: 1px solid #000000;
+  outline: none;
+}
+
+.ProductInpImg {
+    padding: 5px;
+  border: none;
+  
+  outline: none;
+}
+
+.fileInputContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.uploadButton {
+  padding: 10px 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+  margin-left: 130px;
+}
+
+.productLabelImg {
+  margin-top: 10px;
+}
+
+.addProductBtn {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 150px;
+  margin-left: 130px;
+}
+
+

@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { storage } from "./firebase";
 import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
-import {v4} from 'uuid';
+import { v4 } from "uuid";
+import "./product.css";
+// import Button from "@mui/material/Button";
+
+
 
 function AddProduct({ getAllProducts }) {
   let token = localStorage.getItem("token");
@@ -17,8 +21,8 @@ function AddProduct({ getAllProducts }) {
     category: "",
     imageUrl: "",
   });
-  
-  const imageListRef = ref(storage, "image/")
+
+  const imageListRef = ref(storage, "image/");
   const uploadImage = () => {
     if (imageUpload == null) return;
     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
@@ -39,15 +43,11 @@ function AddProduct({ getAllProducts }) {
         getDownloadURL(item).then((snaphsot) => {
           getDownloadURL(snaphsot.ref).then((url) => {
             steImageList((prev) => [...prev, url]);
-          })
-          
-          
-        })
-      })
-    })
-  }, [])
-
-
+          });
+        });
+      });
+    });
+  }, []);
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -80,6 +80,7 @@ function AddProduct({ getAllProducts }) {
         console.log(res.data);
         getAllProducts();
         //   navigate("/");
+        window.location.reload();
       })
 
       .catch((err) => {
@@ -88,50 +89,55 @@ function AddProduct({ getAllProducts }) {
   }
 
   return (
-    <div>
-      <div className="inputDiv">
-        <form className="form1" onSubmit={addNewProduct}>
-          <label>Title:</label>
+    <div className="formAddProduct">
+      <div className="inputDivProduct">
+        <form className="formProduct" onSubmit={addNewProduct}>
+          <label className="productLabel">Title</label>
           <input
+            className="ProductInp"
             type="text"
             name="title"
-            placeholder="Title"
+            placeholder=""
             onChange={handleInputChange}
             value={product.title}
           />
-          <label>Price:</label>
+          <label>Price</label>
           <input
+            className="ProductInp"
             type="text"
             name="price"
-            placeholder="Price"
+            placeholder=""
             onChange={handleInputChange}
             value={product.price}
           />
-          <label>description:</label>
+          <label>description</label>
           <input
+            className="ProductInp"
             type="text"
             name="description"
-            placeholder="description"
+            placeholder=""
             onChange={handleInputChange}
             value={product.description}
           />
-          <label>Image:</label>
+          <label>Image</label>
+
           <input
+            className="ProductInpImg"
             type="file"
             name="imageUrl"
             placeholder="image"
-            onChange={(event) => {setImageUpload(event.target.files[0]);
+            onChange={(event) => {
+              setImageUpload(event.target.files[0]);
             }}
             // value={product.imageUrl}
-            
           />
-          <button onClick={uploadImage}>
+          <button className="uploadButton" onClick={uploadImage}>
             Upload image
           </button>
           {imageList.map((url) => {
-            return <img src={url} />
+            return <img src={url} alt="" />;
           })}
-          <label>Category:</label>
+          <label className="productLabelImg">Category:</label>
           <select
             name="category"
             onChange={handleInputChange}
@@ -143,8 +149,7 @@ function AddProduct({ getAllProducts }) {
             <option value="Office">Office</option>
             <option value="Decoration">Decoration</option>
           </select>
-          
-          
+
           {/* <input
             name="category"
             placeholder="category"
@@ -158,7 +163,7 @@ function AddProduct({ getAllProducts }) {
             accept="image/*"
             onChange={handleInputChange}
           /> */}
-          
+
           <button type="submit" className="addProductBtn">
             ADD
           </button>

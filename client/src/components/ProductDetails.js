@@ -50,22 +50,32 @@ const ProductDetails = () => {
 
 
   return (
+    <div className="detailsDivProduct">
     <div className="prodactDetails">
-      <p className="pDetails">{product.title}</p>
-      <p className="pDetails">{product.description}</p>
-      <p className="pDetails">{product.price}</p>
       <img className="imgPoductDetails" src={product.imageUrl} alt={product.title} />
+      <div className="pDivs">
+      <h1 className="pDetails1 withBorder">{product.title}</h1>
+      <p className="pDetails2 withBorder">{product.description}</p>
+      <span className="spanDetails3 withBorder">{product.price} €</span>
+      
+    
+      
+      
+    
+      
 
       {decoded ? (
         <>
-          <button onClick={addToCart}>Add to Cart</button>
-          <Link to="/cart">
+          <button className="btnAddToCart" onClick={addToCart}>Add to Cart</button>
+          {/* <Link to="/cart">
             <button>Go to Cart</button>
-          </Link>
+          </Link> */}
         </>
       ) : (
         <p>Login to see cart options</p>
       )}
+      </div>
+      </div>
     </div>
   );
 };
