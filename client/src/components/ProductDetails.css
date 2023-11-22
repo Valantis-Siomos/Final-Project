@@ -6,6 +6,10 @@
   /* border: 1px solid black; */
 }
 
+.imgPoductDetails{
+  box-shadow: 0 0 15px 3px #1d1716;
+}
+
 .pDivs {
   margin-left: 50px;
   
