@@ -27,27 +27,38 @@ const Cart = () => {
     localStorage.removeItem(`cartItems_${decoded?.id}`);
   };
 
+
+  const deleteItem = (index) => {
+    const newCartItems = [...cartItems];
+    newCartItems.splice(index, 1);
+    setCartItems(newCartItems);
+    localStorage.setItem(`cartItems_${decoded?.id}`, JSON.stringify(newCartItems));
+  };
+   
+
   const calculateTotalPrice = () => {
     return cartItems.reduce((total, item) => total + item.price, 0);
   };
 
   return (
-    <div>
-      <h1>Cart</h1>
+    <div className="mainDivCart">
+      
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
         <div>
-          {cartItems.map((item) => (
-            <div key={item.id} className="item">
+          {cartItems.map((item, index) => (
+            <div key={`${item.id}_${index}`} className="item">
               <p>{item.title}</p>
               {/* <p>{item.description}</p> */}
               <p>{item.price}</p>
+              <button onClick={() => deleteItem(index)}>Delete</button>
+              
             </div>
           ))}
-          <p>Total: ${calculateTotalPrice()}</p>
+          <p className="total">Total: {calculateTotalPrice()} €</p>
           <GooglePay />
-          <button onClick={clearCart}>Clear Cart</button>
+          <button className="clearCartButton" onClick={clearCart}>Clear Cart</button>
           
         </div>
         

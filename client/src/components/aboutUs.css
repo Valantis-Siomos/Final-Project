@@ -1,0 +1,43 @@
+.about {
+    margin-top: 3em;
+    font-style:normal ;
+    font-size: 50px;
+    /* border: 1px solid black; */
+}
+
+.mainDivAboutUs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    /* border: 1px solid black; */
+    margin-top: 2em;
+    margin-bottom: 6em;
+  }
+  
+  .aboutPhoto {
+    /* flex: 1;  */
+    margin-right: 20px; /* Adjust the margin as needed */
+    
+    margin-left: 150px;
+    
+    height: 650px;
+    /* border: 1px solid black; */
+    width: 40%;
+  }
+
+  .workerImg {
+    margin-top: 7.5em;
+    width: 100%;
+  }
+  
+  .textDiv {
+    /* flex: 2;  */
+    margin-right: 150px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 12pt;
+    /* border: 1px solid black; */
+    width: 60%;
+    text-align: left;
+
+  }

@@ -110,7 +110,7 @@ function AddProduct({ getAllProducts }) {
             onChange={handleInputChange}
             value={product.price}
           />
-          <label>description</label>
+          <label>Description</label>
           <input
             className="ProductInp"
             type="text"

@@ -1,3 +1,71 @@
-.item {
-    border: 1px solid black;
+/* .mainDivCart {
+    margin: 200px 100px 100px 100px;
 }
+
+
+
+
+
+
+.item {
+    display: flex;
+    justify-content:space-between;
+
+    border-bottom: 1px solid black;
+} */
+
+.mainDivCart {
+    max-width: 600px;
+    margin: 220px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+  .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+  
+  .item p {
+    margin: 0;
+  }
+  
+  .item button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .item button:hover {
+    background-color: #c82333;
+  }
+  
+  p.total {
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .googlePayButton {
+    margin-top: 20px;
+  }
+  
+  .clearCartButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .clearCartButton:hover {
+    background-color: #0056b3;
+  }
+  

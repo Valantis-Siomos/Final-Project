@@ -7,6 +7,7 @@ import category2 from "../assets/category2.jpg";
 import category3 from "../assets/category3.jpg";
 import category4 from "../assets/category4.jpg";
 import Carousel from "./carousel";
+import AboutUs from "./aboutUs";
 import "./home.css";
 
 function Home() {
@@ -42,7 +43,8 @@ function Home() {
   return (
     <div className="categoriesContainer">
       <Carousel />
-      <h1> maybe carousel here... </h1>
+      <AboutUs/>
+      
       <div className="categoriesGrid">
         {categories.map((category) => (
           <Link
