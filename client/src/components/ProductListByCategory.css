@@ -7,16 +7,13 @@
   background-color: #dadada;
   width: 2500px;
   height: 180px;
-  text-align: center; 
+  text-align: center;
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: flex-start;
   padding-left: 380px;
   margin-left: -100px;
-
 }
-
-
 
 .productDiv {
   /* border: 1px solid black; */
@@ -25,7 +22,6 @@
   margin-left: 50px;
   margin-bottom: 20px;
   margin-top: 100px;
-  
 }
 
 .productsGrid {
@@ -56,10 +52,179 @@ a {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-
+/*---------------------------------------------------BUTTONS----------------------------------------------------------*/
 
 .buttonsContainer {
-  text-align: center;
-  
-  
+  display: flex;
+  justify-content: space-around;
+  /* text-align: center; */
+  /* gap: 8em; */
+}
+/*------------------------------------------------DELETE BUTTON-------------------------------------------------------*/
+.noselectDeleteButton {
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: red;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  background: #e62222;
+}
+
+.noselectDeleteButton,
+button span {
+  transition: 200ms;
+}
+
+.noselectDeleteButton .text {
+  transform: translateX(35px);
+  color: white;
+  font-weight: bold;
+}
+
+.noselectDeleteButton .icon {
+  position: absolute;
+  border-left: 1px solid #c41b1b;
+  transform: translateX(110px);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.noselectDeleteButton svg {
+  width: 15px;
+  fill: #eee;
+}
+
+.noselectDeleteButton:hover {
+  background: #ff3636;
+}
+
+.noselectDeleteButton:hover .text {
+  color: transparent;
+}
+
+.noselectDeleteButton:hover .icon {
+  width: 150px;
+  border-left: none;
+  transform: translateX(0);
+}
+
+.noselectDeleteButton:focus {
+  outline: none;
+}
+
+.noselectDeleteButton:active .icon svg {
+  transform: scale(0.8);
+}
+
+/*------------------------------------------------DELETE BUTTON-------------------------------------------------------*/
+
+
+
+
+
+
+/*------------------------------------------------UPDATE BUTTON-------------------------------------------------------*/
+
+.edit-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(20, 20, 20);
+  border: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none !important;
+}
+
+.edit-svgIcon {
+  width: 17px;
+  transition-duration: 0.3s;
+}
+
+.edit-svgIcon path {
+  fill: white;
+}
+
+.edit-button:hover {
+  width: 120px;
+  border-radius: 50px;
+  transition-duration: 0.3s;
+  background-color: rgb(69, 233, 255);
+  align-items: center;
+}
+
+.edit-button:hover .edit-svgIcon {
+  width: 20px;
+  transition-duration: 0.3s;
+  transform: translateY(60%);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+.edit-button::before {
+  display: none;
+  content: "Edit";
+  color: white;
+  transition-duration: 0.3s;
+  font-size: 2px;
+}
+
+.edit-button:hover::before {
+  display: block;
+  padding-right: 10px;
+  font-size: 13px;
+  opacity: 1;
+  transform: translateY(0px);
+  transition-duration: 0.3s;
+}
+
+
+/*------------------------------------------------UPDATE BUTTON-------------------------------------------------------*/
+.editForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px; /* Adjust the width as needed */
+  margin: 20px;
+}
+
+.editForm  label {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.editForm  input {
+  padding: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.editForm  button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.editForm  button:hover {
+  background-color: #45a049;
 }

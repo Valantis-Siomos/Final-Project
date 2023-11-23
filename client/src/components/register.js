@@ -30,7 +30,7 @@ function Register() {
               id="userEmail"
               type="email"
               value={email}
-              placeholder="email"
+              placeholder=""
               onChange={(e) => setEmail(e.target.value)}
             />
             <label htmlFor="password">Password</label>
@@ -38,7 +38,7 @@ function Register() {
               className="password"
               id="password"
               type="password"
-              placeholder="password"
+              placeholder=""
               size="40"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
