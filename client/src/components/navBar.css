@@ -40,9 +40,11 @@ body {
   align-items: center;
   text-decoration: none;
   /* margin-right: 30px; */
-  color: black;
+  color: rgb(0, 0, 0);
   
 }
+
+
 
 /* .linksLogin {
     font-size: 30px;

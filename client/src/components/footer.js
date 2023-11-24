@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import "./footer.css"
+import logo from "../assets/logo.png";
 
 
 function Footer() {
@@ -9,8 +10,9 @@ function Footer() {
   return (
     <>
       <footer className="footer">
+      <img className="imgNav" src={logo} alt="Logo" />
       <div>
-        <h1>footer</h1>
+        <p>La Casa &copy; {new Date().getFullYear()} All Rights Reserved</p>
       </div>
       <div>
         <h3>linkedin</h3>
