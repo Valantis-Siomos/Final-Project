@@ -10,19 +10,24 @@
 
 .categoriesContainer {
   text-align: center;
+
 }
 
 .categoriesGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 13px;
+  
 }
 
 .categoriesDiv {
   border: 1px solid #ffffff;
   padding: 10px;
   text-align: center;
+  
 }
+
+
 
 .categoriesDiv img {
   margin-bottom: 8px;
@@ -37,7 +42,17 @@
   height: 500px;
   margin: 20px;
   
+  
+  
 }
+
+.categoriesContainerItem:hover {
+  /* opacity: 0.8; */
+  box-shadow: 0 0 15px 3px #1d1716;
+
+}
+
+
 
 .categoryText {
   position: absolute;
@@ -50,6 +65,7 @@
   padding: 8px;
   border-bottom: 2px solid #fafafa;
   transition: border-bottom 0.2s ease;
+  
 
   &:hover {
     border-top: 2px solid rgb(197, 168, 1);

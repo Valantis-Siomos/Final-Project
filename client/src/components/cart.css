@@ -1,72 +1,140 @@
-/* .mainDivCart {
-    margin: 200px 100px 100px 100px;
+.mainDivCart {
+  max-width: 1000px;
+  margin: 220px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
 }
 
-
-
-
-
-
 .item {
-    display: flex;
-    justify-content:space-between;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
 
-    border-bottom: 1px solid black;
-} */
+.item p {
+  margin: 0;
+}
 
-.mainDivCart {
-    max-width: 600px;
-    margin: 220px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-  }
-  
-  .item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-  }
-  
-  .item p {
-    margin: 0;
-  }
-  
-  .item button {
+/* .item button {
     background-color: #dc3545;
     color: #fff;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-  }
+  } */
+
+.item button:hover {
+  background-color: #c82333;
+}
+
+p.total {
+  font-weight: bold;
+  font-size: larger;
+  margin-top: 20px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.googlePayButton {
+  margin-top: 20px;
+}
+
+.clearCartButton {
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 16px;
+  align-items: center;
+  font-weight: bold;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.clearCartButton:hover {
+  background-color: #fdfdfd;
+  border: 3px solid #ff0000;
+  color:#ff0000;
   
-  .item button:hover {
-    background-color: #c82333;
-  }
-  
-  p.total {
-    font-weight: bold;
-    font-size: larger;
-    margin-top: 20px;
-  }
-  
-  .googlePayButton {
-    margin-top: 20px;
-  }
-  
-  .clearCartButton {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  .clearCartButton:hover {
-    background-color: #0056b3;
-  }
-  
+}
+
+.totalClear {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+/*------------------------------------DELETE BUTTON---------------------------------------------------*/
+
+.deleteButton {
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: red;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  background: #e62222;
+}
+
+.deleteButton,
+.deleteButton span {
+  transition: 200ms;
+}
+
+.deleteButton .text {
+  transform: translateX(35px);
+  color: white;
+  font-weight: bold;
+}
+
+.deleteButton .icon {
+  position: absolute;
+  border-left: 1px solid #df5757;
+  transform: translateX(110px);
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.deleteButton svg {
+  width: 15px;
+  fill: #eee;
+}
+
+.deleteButton:hover {
+  background: #ff3636;
+}
+
+.deleteButton:hover .text {
+  color: transparent;
+}
+
+.deleteButton:hover .icon {
+  width: 150px;
+  border-left: none;
+  transform: translateX(0);
+}
+
+.deleteButton:focus {
+  outline: none;
+}
+
+.deleteButton:active .icon svg {
+  transform: scale(0.8);
+}

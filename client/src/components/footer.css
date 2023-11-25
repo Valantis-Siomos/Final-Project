@@ -1,12 +1,105 @@
+.footerMain {
+  background-color: #5e5652;
+  display: flex;
+  flex-direction: grid;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  margin-top: 150px;
+  box-shadow: 0 0 10px rgba(134, 134, 134, 0.8);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.imgNav {
+  margin-top: 3em;
+  margin-left: 3em;
+}
+
+.textFooter {
+  margin-left: 2em;
+}
+
+.copyrights {
+  margin-top: 4em;
+  margin-left: 2em;
+}
+
+.contact {
+  margin-left: 25em;
+  align-items: center;
+  
+}
+
 .footer {
-    background-color:#B9B5B1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    margin-top: 150px;
-    box-shadow: 0 0 10px rgba(134, 134, 134, 0.8);
-    
+  /* background-color: #f8f8f8;  */
+  padding: 20px;
+}
+
+.footerMain {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.imgNav {
+  max-width: 100%;
+  height: auto;
+}
+
+p {
+  max-width: 100%;
+}
+
+div > h3 {
+  margin: 0;
+  color: #fcfcfc;
+  cursor: pointer;
+}
+
+.cont {
+    margin-left: 3em;
+}
+
+.linkedln {
+  font-size: 2em;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.github {
+  font-size: 2em;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.facebook {
+    font-size: 2em;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.insta {
+    font-size: 2em;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.twitter{
+    font-size: 2em;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+
+.youtube{
+    font-size: 2em;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+
+
+.icons {
     
 }
