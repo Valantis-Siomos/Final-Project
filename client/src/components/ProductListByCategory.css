@@ -51,14 +51,21 @@
 }
 
 .productDetailsTitle,
-.productDetailsDiscription,
-.productDetailsPrice {
+.productDetailsDiscription{
   text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 25px;
+}
+
+.productDetailsPrice{
+  text-align: center;
+  
+  font-size: 23px;
 }
 
 .productDetailsTitle:hover,
 .productDetailsPrice:hover {
-  color: #9e9b9a;
+  color: #D5C9BA;
 }
 
 a {

@@ -3,6 +3,7 @@
     font-style:normal ;
     font-size: 50px;
     /* border: 1px solid black; */
+    font-family: 'Raleway', sans-serif;
     
 }
 
@@ -36,7 +37,7 @@
   .textDiv {
     /* flex: 2;  */
     margin-right: 150px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Raleway', sans-serif;
     font-size: 12pt;
     /* border: 1px solid black; */
     width: 60%;

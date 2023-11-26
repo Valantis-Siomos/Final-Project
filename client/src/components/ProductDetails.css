@@ -14,10 +14,19 @@
   margin-left: 50px;
 }
 
+.pDetails1 {
+  font-family: "Raleway", sans-serif;
+}
 .pDetails2 {
   /* border-bottom: 1px solid #000000; */
   margin: 50px 0;
   padding: 5px;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
+
+.spanDetails3 {
+  font-size: 20px;
 }
 
 .prodactDetails {

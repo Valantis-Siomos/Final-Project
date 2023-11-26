@@ -68,9 +68,9 @@
   
 
   &:hover {
-    border-top: 2px solid rgb(197, 168, 1);
-    color: rgb(197, 168, 1);
-    border-bottom: 2px solid rgb(197, 168, 1);
+    border-top: 2px solid #D5C9BA;
+    color: #D5C9BA;
+    border-bottom: 2px solid #D5C9BA;
   }
 }
 
