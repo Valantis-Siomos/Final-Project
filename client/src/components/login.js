@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./login.css";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   async function handleLogin(e) {
@@ -19,13 +21,17 @@ function Login() {
         alert(res.data.msg);
         localStorage.setItem("token", res.data.token);
         navigate("/");
-        // const isAdmin = res.data.role === "Admin";
-        // localStorage.setItem("isAdmin", isAdmin);
+        
       }
     } catch (err) {
       alert("Log in failed, check your email or password.");
     }
   }
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
 
   return (
     <div className="outerDiv">
@@ -43,14 +49,21 @@ function Login() {
               onChange={(e) => setEmail(e.target.value)}
             />
             <label htmlFor="pass">Password</label>
+            <div className="password-input-container">
             <input className="password"
               id="pass"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder=""
               size="40"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {showPassword ? (
+                <FaEyeSlash onClick={togglePasswordVisibility} />
+              ) : (
+                <FaEye onClick={togglePasswordVisibility} />
+              )}
+              </div>
             <button className="button" type="submit">Sign in</button>
           </form>
         </div>

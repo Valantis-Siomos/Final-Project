@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./register.css";
 
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   async function handleRegister(e) {
@@ -17,6 +19,10 @@ function Register() {
     alert(res.data.msg);
     navigate("/login");
   }
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <div className="outerDivRegister">
@@ -34,15 +40,22 @@ function Register() {
               onChange={(e) => setEmail(e.target.value)}
             />
             <label htmlFor="password">Password</label>
+            <div className="password-input-container">
             <input
               className="password"
               id="password"
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder=""
               size="40"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {showPassword ? (
+                <FaEyeSlash onClick={togglePasswordVisibility} />
+              ) : (
+                <FaEye onClick={togglePasswordVisibility} />
+              )}
+              </div>
             <button className="button" type="submit">Register</button>
           </form>
         </div>
