@@ -95,7 +95,7 @@ a {
   border: none;
   border-radius: 5px;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
-  background: #e62222;
+  background: #522b2b;
 }
 
 .noselectDeleteButton,
@@ -158,10 +158,14 @@ button span {
   cursor: pointer;
   display: flex;
   align-items: center;
-  background: rgb(69, 134, 255);
+  background: #1E3F55;
   border: none;
   border-radius: 5px;
   text-decoration: none !important;
+}
+
+.edit-button:hover {
+  background-color: #2d88c5;
 }
 
 .edit-svgIcon {
