@@ -78,9 +78,13 @@ function AddProduct({ getAllProducts }) {
       })
       .then((res) => {
         console.log(res.data);
+        alert("Product added successfully")
+        window.location.reload();
         getAllProducts();
         //   navigate("/");
-        window.location.reload();
+        
+      
+        
       })
 
       .catch((err) => {
