@@ -12,12 +12,23 @@ function Register() {
 
   async function handleRegister(e) {
     e.preventDefault();
-    let res = await axios.post("http://localhost:8000/register", {
-      email,
-      password,
-    });
-    alert(res.data.msg);
-    navigate("/login");
+    if (!email || !password) {
+      alert("Email and password are required.");
+      return;
+    }
+
+    try {
+      let res = await axios.post("http://localhost:8000/register", {
+        email,
+        password,
+      });
+
+      alert(res.data.msg);
+      navigate("/login");
+    } catch (error) {
+      
+      console.error("Registration failed:", error);
+    }
   }
 
   const togglePasswordVisibility = () => {
