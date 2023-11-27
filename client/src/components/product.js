@@ -62,6 +62,7 @@ function AddProduct({ getAllProducts }) {
       product.title.trim() !== "" &&
       product.price.trim() !== "" &&
       product.description.trim() !== ""
+      // product.imageUrl.trim() !== ""
     );
   };
 

@@ -64,9 +64,9 @@ p.total {
 }
 
 .clearCartButton:hover {
-  background-color: #fdfdfd;
-  border: 3px solid #ff0000;
-  color:#ff0000;
+  background-color: #6e0000;
+  /* border: 3px solid #ff0000; */
+  color:rgb(255, 255, 255);
   
 }
 
