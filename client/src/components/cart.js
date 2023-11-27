@@ -43,7 +43,7 @@ const Cart = () => {
   return (
     <div className="mainDivCart">
       {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p className="pEmpty">Your cart is empty.</p>
       ) : (
         <div>
           {cartItems.map((item, index) => (
