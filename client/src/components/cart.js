@@ -22,17 +22,20 @@ const Cart = () => {
   );
 
   const clearCart = () => {
-    
+    const alertConfirmProduct = window.confirm("Are you sure?");
     setCartItems([]);
     localStorage.removeItem(`cartItems_${decoded?.id}`);
   };
 
 
   const deleteItem = (index) => {
+    const alertConfirmProduct = window.confirm("Are you sure?");
+    if (alertConfirmProduct) {
     const newCartItems = [...cartItems];
     newCartItems.splice(index, 1);
     setCartItems(newCartItems);
     localStorage.setItem(`cartItems_${decoded?.id}`, JSON.stringify(newCartItems));
+    }
   };
    
 
