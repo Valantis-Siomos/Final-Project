@@ -50,12 +50,15 @@ const ProductListByCategory = () => {
   }, [category]);
 
   const deleteProduct = async (id) => {
+    const alertConfirmProduct = window.confirm("Are you sure?");
+    if (alertConfirmProduct) {
     try {
       await axios.delete(`http://localhost:8000/${id}`);
       window.location.reload();
     } catch (error) {
       console.log("Error deleting product:", error);
     }
+  }
   };
 
   const updateProduct = async () => {
