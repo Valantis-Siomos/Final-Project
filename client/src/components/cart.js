@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { jwtDecode } from "jwt-decode";
 import GooglePay from "./googleButton";
+import Swal from "sweetalert2";
+import "sweetalert2/dist/sweetalert2.css";
 import "./cart.css";
 
 const Cart = () => {
@@ -22,9 +24,42 @@ const Cart = () => {
   );
 
   const clearCart = () => {
-    const alertConfirmProduct = window.confirm("Are you sure?");
-    setCartItems([]);
-    localStorage.removeItem(`cartItems_${decoded?.id}`);
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success mr-2",
+        cancelButton: "btn btn-danger ml-2",
+      },
+      buttonsStyling: false,
+    });
+  
+    swalWithBootstrapButtons
+      .fire({
+        title: "Are you sure?",
+        text: "This action will clear your cart. You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes, clear it!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          setCartItems([]);
+          localStorage.removeItem(`cartItems_${decoded?.id}`);
+  
+          swalWithBootstrapButtons.fire({
+            title: "Cleared!",
+            text: "Your cart has been cleared.",
+            icon: "success",
+          });
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+          swalWithBootstrapButtons.fire({
+            title: "Cancelled",
+            text: "Your cart is safe :)",
+            icon: "error",
+          });
+        }
+      });
   };
 
 

@@ -146,3 +146,26 @@ p.total {
   font-family: 'Raleway', sans-serif;
   font-size: large;
 }
+
+
+
+/*-------------------------------------------------MODAL BUTTONS---------------------------------------------------*/
+
+
+
+.btn-success {
+  background-color: #006e12;
+  padding: 0.8em;
+  border-radius: 10px;
+  margin-left: 20px;
+  
+}
+
+
+
+.btn-danger {
+  background-color: #6e0000;
+  padding: 0.8em;
+  border-radius: 10px;
+  
+}
