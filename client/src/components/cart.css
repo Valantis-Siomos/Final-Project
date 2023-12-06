@@ -154,18 +154,41 @@ p.total {
 
 
 .btn-success {
-  background-color: #006e12;
-  padding: 0.8em;
+  background-color: #2ecc71;
+  padding: 0.6em;
   border-radius: 10px;
   margin-left: 20px;
+  color: #fff;
+  font-size:large;
+  font-weight: bold;
+  border: none;
   
+}
+
+.btn-success:hover {
+  background-color: #229b54;
 }
 
 
 
 .btn-danger {
-  background-color: #6e0000;
-  padding: 0.8em;
+  background-color: #ff0000;
+  padding: 0.6em;
   border-radius: 10px;
-  
+  color: #fff;
+  font-size:large;
+  font-weight: bold;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #6e0000;
+}
+
+.custom-swal-container {
+  font-family: 'Raleway', sans-serif;
+}
+
+.custom-swal-title {
+  font-family: 'Raleway', sans-serif;
 }

@@ -28,6 +28,8 @@ const Cart = () => {
       customClass: {
         confirmButton: "btn btn-success mr-2",
         cancelButton: "btn btn-danger ml-2",
+        container: "custom-swal-container",
+        title: "custom-swal-title",
       },
       buttonsStyling: false,
     });
@@ -38,9 +40,11 @@ const Cart = () => {
         text: "This action will clear your cart. You won't be able to revert this!",
         icon: "warning",
         showCancelButton: true,
-        confirmButtonText: "Yes, clear it!",
-        cancelButtonText: "No, cancel!",
+        confirmButtonText: "Yes, clear it",
+        cancelButtonText: "No, cancel",
         reverseButtons: true,
+        customContainerClass: "custom-swal-container",
+        customTitleClass: "custom-swal-title",
       })
       .then((result) => {
         if (result.isConfirmed) {
