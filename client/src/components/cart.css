@@ -7,14 +7,13 @@
   background-color: #fff;
 }
 
-
 .item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #ddd;
   padding: 10px 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: bold;
 }
 
@@ -66,8 +65,7 @@ p.total {
 .clearCartButton:hover {
   background-color: #6e0000;
   /* border: 3px solid #ff0000; */
-  color:rgb(255, 255, 255);
-  
+  color: rgb(255, 255, 255);
 }
 
 .totalClear {
@@ -140,18 +138,12 @@ p.total {
   transform: scale(0.8);
 }
 
-
-
 .pEmpty {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-size: large;
 }
 
-
-
 /*-------------------------------------------------MODAL BUTTONS---------------------------------------------------*/
-
-
 
 .btn-success {
   background-color: #2ecc71;
@@ -159,24 +151,21 @@ p.total {
   border-radius: 10px;
   margin-left: 20px;
   color: #fff;
-  font-size:large;
+  font-size: large;
   font-weight: bold;
   border: none;
-  
 }
 
 .btn-success:hover {
   background-color: #229b54;
 }
 
-
-
 .btn-danger {
   background-color: #ff0000;
   padding: 0.6em;
   border-radius: 10px;
   color: #fff;
-  font-size:large;
+  font-size: large;
   font-weight: bold;
   border: none;
 }
@@ -186,9 +175,9 @@ p.total {
 }
 
 .custom-swal-container {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 .custom-swal-title {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
 }

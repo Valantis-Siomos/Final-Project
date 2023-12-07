@@ -23,7 +23,6 @@
   background-size: cover;
 }
 
-
 .mainDiv {
   /* display: flex;
     align-items: center; */
@@ -68,80 +67,91 @@
   width: 490px;
   flex-wrap: wrap;
   /* box-shadow: 0 0 15px 3px  #1d1716; */
-  
 }
 
 .email {
   border: none;
-  border-bottom: 1px solid #000000; 
+  border-bottom: 1px solid #000000;
   padding: 8px;
   margin-bottom: 15px;
   outline: none;
-  
-  
 }
 
 .password {
   border: none;
-  border-bottom: 1px solid #000000; 
+  border-bottom: 1px solid #000000;
   padding: 8px;
   margin-bottom: 15px;
   outline: none;
-  
 }
 
 .button {
   margin-top: 40px;
-    margin-left: 90px;
-    width: 140px;
-    font-size: 17px;
-    background: transparent;
-    border: none;
-    padding: 1em 1.5em;
-    color: #050504;
-    text-transform: uppercase;
-    position: relative;
-    transition: .5s ease;
-  }
-  
-  .button::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    width: 0;
-    /* background-color: #ffc506; */
-    background-color: #2ecc71;
-    transition: .5s ease;
-  }
-  
-  .button:hover {
-    color: #1e1e2b;
-    transition-delay: .5s;
-    
-  }
-  
-  .button:hover::before {
-    width: 100%;
-  }
-  
-  .button::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 0;
-    width: 100%;
-    /* background-color: #ffc506; */
-    background-color: #2ecc71;
-    transition: .4s ease;
-    z-index: -1;
-    
-  }
-  
-  .button:hover::after {
-    height: 100%;
-    transition-delay: 0.4s;
-    color: aliceblue;
-  }
+  margin-left: 90px;
+  width: 140px;
+  font-size: 17px;
+  background: transparent;
+  border: none;
+  padding: 1em 1.5em;
+  color: #050504;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.5s ease;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  /* background-color: #ffc506; */
+  background-color: #2ecc71;
+  transition: 0.5s ease;
+}
+
+.button:hover {
+  color: #1e1e2b;
+  transition-delay: 0.5s;
+}
+
+.button:hover::before {
+  width: 100%;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  /* background-color: #ffc506; */
+  background-color: #2ecc71;
+  transition: 0.4s ease;
+  z-index: -1;
+}
+
+.button:hover::after {
+  height: 100%;
+  transition-delay: 0.4s;
+  color: aliceblue;
+}
+
+
+
+/*----------------------------------------------------Modal Buttons-----------------------------------------------------*/
+
+.custom-popup-class .btn-ok {
+  border: none;
+  background-color: #2ecc71;; 
+  color: #ffffff; 
+}
+
+
+.custom-popup-class .btn-ok-fail {
+  border: none;
+  background-color: #75a588;; 
+  color: #ffffff; 
+}
