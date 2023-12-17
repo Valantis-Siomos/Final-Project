@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import Swal from 'sweetalert2'
 import "./ProductDetails.css"
 
 const ProductDetails = () => {
@@ -44,7 +45,17 @@ const ProductDetails = () => {
 
     localStorage.setItem(`cartItems_${decoded?.id}`, JSON.stringify(updatedCartItems));
 
-    alert("Product added to cart!");
+    // alert("Product added to cart!");
+    Swal.fire({
+      title: 'Product added to cart!',
+      // text: 'Do you want to continue',
+      icon: 'success',
+      confirmButtonText: 'ok',
+      customClass: {
+        popup: "custom-popup-class",
+        confirmButton: "btn-ok",
+      },
+    })
   };
 
 

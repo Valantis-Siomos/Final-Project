@@ -247,3 +247,19 @@ button span {
 .editForm button:hover {
   background-color: #45a049;
 }
+
+
+/*----------------------------------------------------Modal Buttons-----------------------------------------------------*/
+
+.custom-popup-class .btn-ok {
+  border: none;
+  background-color: #2ecc71;; 
+  color: #ffffff; 
+}
+
+
+.custom-popup-class .btn-ok-fail {
+  border: none;
+  background-color: #75a588;; 
+  color: #ffffff; 
+}
