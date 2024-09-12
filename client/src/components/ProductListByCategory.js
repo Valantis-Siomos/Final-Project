@@ -38,7 +38,7 @@ const ProductListByCategory = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/category/${category}`
+          `https://final-project-yrhd.onrender.com/category/${category}`
         );
         setProducts(response.data);
       } catch (error) {
@@ -53,7 +53,7 @@ const ProductListByCategory = () => {
     const alertConfirmProduct = window.confirm("Are you sure?");
     if (alertConfirmProduct) {
       try {
-        await axios.delete(`http://localhost:8000/${id}`);
+        await axios.delete(`https://final-project-yrhd.onrender.com/${id}`);
         window.location.reload();
       } catch (error) {
         console.log("Error deleting product:", error);
@@ -63,7 +63,7 @@ const ProductListByCategory = () => {
 
   const updateProduct = async () => {
     try {
-      await axios.put(`http://localhost:8000/${editProduct.id}`, {
+      await axios.put(`https://final-project-yrhd.onrender.com/${editProduct.id}`, {
         title: editProduct.title,
         price: editProduct.price,
         description: editProduct.description,
