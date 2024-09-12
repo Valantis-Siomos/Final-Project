@@ -1,4 +1,4 @@
-const { User, Admin } = require('../models/UserModel');
+const { User, Admin } = require('../models/userModel');
 const express = require("express");
 const router = express.Router();
 const verifyToken = require("../middleware/authorization");
