@@ -14,7 +14,7 @@ function Home() {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/categories")
+      .get("https://final-project-yrhd.onrender.com/categories")
       .then((response) => {
         setCategories(response.data);
       })
