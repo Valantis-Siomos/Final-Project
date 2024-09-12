@@ -27,7 +27,7 @@ const ProductDetails = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/${id}`);
+        const response = await axios.get(`https://final-project-yrhd.onrender.com/${id}`);
         setProduct(response.data);
       } catch (error) {
         console.error("Error fetching product details:", error);
