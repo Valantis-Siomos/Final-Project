@@ -74,7 +74,7 @@ function AddProduct({ getAllProducts }) {
     }
 
     axios
-      .post("http://localhost:8000/create", product, {
+      .post("https://final-project-yrhd.onrender.com/create", product, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
