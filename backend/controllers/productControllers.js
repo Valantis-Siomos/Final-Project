@@ -1,4 +1,5 @@
 const Product = require("../models/productModel");
+const { User, Admin } = require("../models/UserModel");
 require("dotenv").config();
 const verifyToken = require("../middleware/authorization");
 // const cloudinary = require("../cloudinary");
