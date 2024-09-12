@@ -18,7 +18,7 @@ function Register() {
     }
 
     try {
-      let res = await axios.post("http://localhost:8000/register", {
+      let res = await axios.post("https://final-project-yrhd.onrender.com/register", {
         email,
         password,
       });
