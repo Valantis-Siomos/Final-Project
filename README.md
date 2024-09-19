@@ -2,15 +2,6 @@
 
 Welcome to **La Casa**, a luxury furniture store built with the MERN stack. This project showcases a modern platform where users can explore and purchase high-end furniture for their homes.
 
-## Table of Contents
-- [Introduction](#introduction)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Screenshots](#screenshots)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 **La Casa** is designed to offer users a seamless and intuitive experience when browsing for luxury furniture. The project demonstrates the power of the MERN stack (MongoDB, Express.js, React.js, and Node.js) in building scalable, and feature-rich applications.
