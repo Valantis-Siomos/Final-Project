@@ -1,8 +1,8 @@
-![Home](https://github.com/user-attachments/assets/ea31b631-726a-408a-a85c-43c4f6b6fbc1)# La Casa - Luxury Furniture Store
+
 
 Welcome to **La Casa**, a luxury furniture store built with the MERN stack. This project showcases a modern platform where users can explore and purchase high-end furniture for their homes.
 ![Uploading Home.png…]()
-
+![Home](https://github.com/user-attachments/assets/ea31b631-726a-408a-a85c-43c4f6b6fbc1)# La Casa - Luxury Furniture Store
 
 
 ## Introduction
