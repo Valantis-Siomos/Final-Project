@@ -42,6 +42,10 @@ The frontend is built using React, providing a user-friendly interface to intera
 - react: JavaScript library for building user interfaces.
 - axios: Promise-based HTTP client for making requests to the backend API.
 
+## Test account
+- test12@gmail.com
+- 1234
+
 
 ## Tech Stack
 - **Frontend**: React.js, CSS, HTML
